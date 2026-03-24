@@ -3,13 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <meta property="og:title" content="Kuis Spesial Lebaran BO2 Prakerja" />
-    <meta property="og:description" content="Uji wawasanmu dan raih posisi puncak di Papan Skor Top 10 Grup BO2!" />
-    <meta property="og:image" content="https://drive.google.com/thumbnail?id=1FRLzW_EW5cT8PoWVD2z6CZtFEHP7nHmW&sz=w800" />
-    <meta property="og:type" content="website" />
-
-    <title>Kuis Spesial Lebaran BO2 Prakerja</title>
+    <title>Kuis Tebak Nada BO2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -22,46 +16,28 @@
         .option-btn { transition: all 0.2s; border-color: #e5e7eb; background-color: #ffffff; color: #374151; }
         @media (hover: hover) and (pointer: fine) { .option-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border-color: #60a5fa !important; background-color: #eff6ff !important; } }
         .option-btn:active:not(:disabled) { transform: scale(0.98); }
-        .btn-wa { background-color: #25D366; color: white; } .btn-wa:hover { background-color: #128C7E; }
         .avatar-btn { font-size: 1.8rem; transition: all 0.2s; border: 3px solid transparent; cursor: pointer; color: #047857; }
         .avatar-btn.selected { border-color: #10b981; background-color: #d1fae5; transform: scale(1.1); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); color: #064e3b; }
         .custom-scrollbar::-webkit-scrollbar { width: 6px; } .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; } .custom-scrollbar::-webkit-scrollbar-thumb { background: #10b981; border-radius: 10px; }
-        .pulse-btn { animation: pulseBtn 1.5s infinite; }
-        @keyframes pulseBtn { 0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(250, 204, 21, 0); } 100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); } }
         
-        /* --- ANIMASI COUNTDOWN --- */
-        @keyframes pop { 
-            0% { transform: scale(0.5); opacity: 0; } 
-            50% { transform: scale(1.2); opacity: 1; } 
-            100% { transform: scale(1); opacity: 1; } 
-        }
+        @keyframes pop { 0% { transform: scale(0.5); opacity: 0; } 50% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
         .animate-pop { animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
         .animate-float { animation: float 3s ease-in-out infinite; }
+        
+        /* Animasi Kaset Berputar */
+        .spin-slow { animation: spin 4s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4 text-gray-800">
 
-    <div id="loading-screen" class="absolute inset-0 bg-emerald-950 z-[200] flex flex-col items-center justify-center text-white transition-opacity duration-500">
-        <div id="loading-spinner" class="flex flex-col items-center">
-            <i class="fa-solid fa-spinner fa-spin text-6xl text-yellow-400 mb-4"></i>
-            <p class="text-lg font-bold animate-pulse text-emerald-100">Memuat Aset BO2...</p>
-        </div>
-        <div id="enter-btn-container" class="hidden flex-col items-center">
-            <img src="https://drive.google.com/thumbnail?id=1FRLzW_EW5cT8PoWVD2z6CZtFEHP7nHmW&sz=w800" alt="Ornamen BO2" class="w-48 h-48 object-contain drop-shadow-2xl animate-float mb-6 rounded-full border-4 border-yellow-400 p-2 bg-white">
-            <h1 class="text-3xl font-extrabold mb-8 text-center leading-tight">Kuis Spesial<br>Lebaran BO2</h1>
-            <button onclick="enterHome()" class="bg-yellow-500 hover:bg-yellow-600 text-emerald-900 font-black py-4 px-10 rounded-full text-xl pulse-btn transition transform hover:scale-110">
-                MASUK <i class="fa-solid fa-arrow-right ml-2"></i>
-            </button>
-        </div>
-    </div>
-
     <div id="app-container" class="glass-panel w-full max-w-md rounded-3xl shadow-2xl overflow-hidden fade-in relative flex flex-col max-h-[90vh]">
         
-        <div id="start-screen" class="p-6 text-center overflow-y-auto custom-scrollbar hidden">
-            <div class="text-emerald-600 text-5xl mb-2 animate-bounce"><i class="fa-solid fa-mosque"></i></div>
-            <h1 class="text-2xl font-extrabold text-gray-900 mb-1">Kuis Lebaran</h1>
-            <h2 class="text-md text-emerald-700 font-bold mb-4 bg-emerald-100 py-1 rounded-full mx-auto max-w-[80%]">BO2 Prakerja</h2>
+        <div id="start-screen" class="p-6 text-center overflow-y-auto custom-scrollbar">
+            <div class="text-emerald-600 text-6xl mb-4 animate-float"><i class="fa-solid fa-compact-disc"></i></div>
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-1">Tebak Nada</h1>
+            <h2 class="text-md text-emerald-700 font-bold mb-4 bg-emerald-100 py-1 rounded-full mx-auto max-w-[80%]">Nostalgia BO2</h2>
             
             <div class="bg-gray-50 rounded-2xl p-4 mb-5 border border-gray-200">
                 <p class="text-sm font-bold text-gray-700 mb-3">Pilih Karakter & Nama Anda</p>
@@ -71,26 +47,29 @@
             </div>
             
             <button onclick="prepareGame()" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-2xl shadow-lg transition duration-200 transform hover:scale-[1.02] text-lg flex justify-center items-center">
-                Mulai Main <i class="fa-solid fa-rocket ml-2"></i>
-            </button>
-            <button onclick="showLeaderboard()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-2xl shadow-lg transition duration-200 transform hover:scale-[1.02] text-lg mt-3 flex justify-center items-center">
-                <i class="fa-solid fa-trophy mr-2"></i> Papan Skor
+                Mulai Main <i class="fa-solid fa-music ml-2"></i>
             </button>
         </div>
 
-        <div id="game-screen" class="hidden flex-col h-full overflow-y-auto">
+        <div id="game-screen" class="hidden flex-col h-full overflow-y-auto relative">
+            
+            <div id="audio-loading" class="absolute inset-0 bg-white/90 z-30 flex flex-col items-center justify-center hidden backdrop-blur-sm">
+                <i class="fa-solid fa-compact-disc fa-spin text-5xl text-emerald-600 mb-3"></i>
+                <p class="font-bold text-emerald-800 animate-pulse">Mencari kaset dari Apple Music...</p>
+            </div>
+
             <div class="bg-emerald-600 text-white p-3 flex justify-between items-center shadow-md rounded-b-xl sticky top-0 z-10">
                 <div class="font-bold flex flex-col">
                     <span class="text-[10px] text-emerald-200 uppercase">Skor</span>
                     <span class="text-lg flex items-center"><i class="fa-solid fa-star text-yellow-300 mr-1 text-xs"></i> <span id="score-display">0</span></span>
                 </div>
                 <div class="font-bold text-center">
-                    <span class="text-[10px] text-emerald-200 uppercase block">Soal</span>
-                    <span class="text-lg"><span id="question-number">1</span>/8</span>
+                    <span class="text-[10px] text-emerald-200 uppercase block">Lagu</span>
+                    <span class="text-lg"><span id="question-number">1</span>/10</span>
                 </div>
                 <div class="font-bold flex flex-col items-end">
                     <span class="text-[10px] text-emerald-200 uppercase">Waktu</span>
-                    <span class="text-lg flex items-center bg-emerald-800 px-2 rounded-lg"><i class="fa-solid fa-stopwatch mr-1 text-xs"></i> <span id="timer-display">15</span></span>
+                    <span class="text-lg flex items-center bg-emerald-800 px-2 rounded-lg"><i class="fa-solid fa-stopwatch mr-1 text-xs"></i> <span id="timer-display">20</span></span>
                 </div>
             </div>
 
@@ -98,10 +77,15 @@
                 <div id="progress-bar" class="bg-yellow-400 h-1.5 transition-all duration-300 rounded-r-full" style="width: 0%"></div>
             </div>
 
-            <div class="p-5 flex-grow">
-                <span id="category-badge" class="inline-block bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded-full mb-2 uppercase tracking-wider">Kategori</span>
-                <h3 id="question-text" class="text-lg font-bold mb-4 text-gray-800 leading-snug">Pertanyaan...</h3>
-                <div id="options-container" class="space-y-2"></div>
+            <div class="p-5 flex-grow text-center">
+                <div class="mx-auto w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center border-4 border-gray-900 mb-4 relative shadow-lg" id="cassette-ui">
+                    <div class="w-8 h-8 bg-white rounded-full"></div>
+                    <i class="fa-solid fa-music absolute text-emerald-400 text-xl animate-pulse"></i>
+                </div>
+
+                <span id="stage-badge" class="inline-block bg-blue-100 text-blue-800 text-xs font-black px-3 py-1 rounded-full mb-3 uppercase tracking-wider">TAHAP 1: SIAPA PENYANYINYA?</span>
+                
+                <div id="options-container" class="space-y-2 mt-2"></div>
             </div>
             
             <div id="feedback-container" class="hidden absolute inset-0 flex items-center justify-center bg-white bg-opacity-95 z-20">
@@ -110,43 +94,17 @@
         </div>
 
         <div id="result-screen" class="hidden p-6 text-center overflow-y-auto custom-scrollbar">
-            <h2 class="text-2xl font-extrabold text-emerald-700 mb-1">Alhamdulillah!</h2>
-            <p class="text-gray-600 mb-3 text-md">Permainan selesai, <span id="final-avatar" class="text-emerald-600"></span> <span id="final-name" class="font-bold text-gray-900">Nama</span>!</p>
+            <h2 class="text-2xl font-extrabold text-emerald-700 mb-1">Konser Selesai!</h2>
+            <p class="text-gray-600 mb-5 text-md"><span id="final-avatar" class="text-emerald-600"></span> <span id="final-name" class="font-bold text-gray-900">Nama</span></p>
             
-            <div class="mb-4 rounded-xl overflow-hidden shadow-md border-2 border-yellow-400 max-h-40 relative bg-gray-100 flex justify-center items-center">
-                <img src="https://drive.google.com/thumbnail?id=1FRLzW_EW5cT8PoWVD2z6CZtFEHP7nHmW&sz=w800" alt="Spesial Lebaran" class="object-cover w-full h-full" onerror="this.src='https://via.placeholder.com/400x200?text=Selamat+Lebaran+BO2';">
+            <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-4 mb-6 border border-emerald-200 shadow-inner">
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Total Skor Musikmu</p>
+                <div class="text-5xl font-black text-emerald-600 mb-3 drop-shadow-sm" id="final-score">0</div>
             </div>
 
-            <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-4 mb-4 border border-emerald-200 shadow-inner">
-                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Skor Akhir</p>
-                <div class="text-4xl font-black text-emerald-600 mb-3 drop-shadow-sm" id="final-score">0</div>
-                <div class="border-t border-emerald-200 pt-3">
-                    <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Gelar Lebaran Anda:</p>
-                    <p class="text-xl font-extrabold text-yellow-600 leading-tight mb-2" id="final-rank">Gelar</p>
-                    <p class="text-xs text-gray-700 italic bg-white p-2 rounded-lg border border-emerald-100" id="rank-description">Deskripsi</p>
-                </div>
-            </div>
-
-            <div class="space-y-2 flex flex-col">
-                <button onclick="showLeaderboard()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-xl shadow-md transition duration-200">
-                    <i class="fa-solid fa-trophy mr-2"></i> Lihat Papan Skor Top 10
-                </button>
-                <button onclick="shareToWA()" class="w-full btn-wa font-bold py-3 px-4 rounded-xl shadow-md transition duration-200">
-                    <i class="fa-brands fa-whatsapp text-xl mr-2"></i> Pamerkan ke Grup!
-                </button>
-                <button onclick="resetGame()" class="w-full bg-white border-2 border-gray-300 hover:bg-gray-50 text-gray-700 font-bold py-2 px-4 rounded-xl transition duration-200 text-sm">
-                    <i class="fa-solid fa-rotate-right mr-1"></i> Main Ulang
-                </button>
-            </div>
-        </div>
-
-        <div id="leaderboard-screen" class="hidden flex-col h-full bg-gray-50 absolute inset-0 z-30 fade-in rounded-3xl overflow-hidden">
-            <div class="bg-emerald-600 text-white p-4 text-center shadow-md relative">
-                <button onclick="closeLeaderboard()" class="absolute left-4 top-4 text-emerald-200 hover:text-white"><i class="fa-solid fa-arrow-left text-xl"></i></button>
-                <h2 class="text-xl font-bold"><i class="fa-solid fa-crown text-yellow-300 mr-2"></i> Top 10 Skor BO2</h2>
-                <button onclick="resetDatabase()" class="absolute right-4 top-4 text-emerald-800 hover:text-red-300" title="Reset Area (Admin Only)"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-            <div class="flex-grow overflow-y-auto p-4 custom-scrollbar" id="leaderboard-list"></div>
+            <button onclick="location.reload()" class="w-full bg-white border-2 border-gray-300 hover:bg-gray-50 text-gray-700 font-bold py-3 px-4 rounded-xl transition duration-200">
+                <i class="fa-solid fa-rotate-right mr-1"></i> Main Ulang
+            </button>
         </div>
     </div>
 
@@ -155,57 +113,22 @@
         <div id="countdown-circle" class="relative flex items-center justify-center w-64 h-64 mx-auto rounded-full bg-emerald-800 shadow-[0_0_50px_rgba(16,185,129,0.5)] border-4 border-yellow-400/50 transition-opacity duration-300">
             <span id="countdown-number" class="text-8xl md:text-9xl font-bold text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.8)] opacity-0">5</span>
         </div>
-        <div id="countdown-message" class="hidden absolute inset-0 flex items-center justify-center bg-emerald-800 z-10">
-            <h2 class="text-6xl md:text-7xl font-extrabold text-yellow-300 animate-bounce drop-shadow-lg">MULAI!</h2>
-        </div>
     </div>
 
-    <script src="questions.js"></script>
+    <script src="songs.js"></script>
 
     <script>
-        const bgmOpening = new Audio('bgm-opening.mp3'); bgmOpening.loop = true;
-        const sfxCountdown = new Audio('sfx-countdown.mp3'); sfxCountdown.playbackRate = 2.0; 
-        const bgmGameplay = new Audio('bgm-gameplay.mp3'); bgmGameplay.loop = true;
-        const sfxTick = new Audio('sfx-tick.mp3'); sfxTick.loop = true;
         const sfxRight = new Audio('sfx-right.mp3');
-        const sfxTimeout = new Audio('sfx-timeout.mp3');
-        const bgmEnding = new Audio('bgm-ending.mp3'); bgmEnding.loop = true;
+        const sfxWrong = new Audio('sfx-timeout.mp3'); // Pakai sfx timeout untuk salah
+        
+        let activeAudio = null; // Menyimpan lagu yang sedang diputar
 
-        let audioInitialized = false;
-
-        function playAudio(audioObj) {
-            if (!audioObj) return; audioObj.currentTime = 0;
-            audioObj.play().catch(e => console.log("Audio waiting for interaction", e));
-        }
-        function stopAudio(audioObj) { if (audioObj) audioObj.pause(); }
-
-        function showEnterButton() {
-            const spinner = document.getElementById('loading-spinner');
-            const btnContainer = document.getElementById('enter-btn-container');
-            if(spinner && !spinner.classList.contains('hidden')) {
-                spinner.classList.add('hidden');
-                btnContainer.classList.remove('hidden'); btnContainer.classList.add('flex');
-            }
-        }
-        bgmOpening.addEventListener('canplaythrough', showEnterButton, { once: true });
-        setTimeout(showEnterButton, 3000); 
-
-        function enterHome() {
-            document.getElementById('loading-screen').style.opacity = "0";
-            setTimeout(() => {
-                document.getElementById('loading-screen').classList.add('hidden');
-                document.getElementById('start-screen').classList.remove('hidden');
-                document.body.style.overflow = 'auto'; audioInitialized = true; playAudio(bgmOpening); 
-            }, 500);
-        }
-
-        const allIcons = ['fa-user', 'fa-user-tie', 'fa-user-graduate', 'fa-user-ninja', 'fa-user-astronaut', 'fa-user-secret', 'fa-user-doctor', 'fa-ghost', 'fa-skull', 'fa-robot', 'fa-cat', 'fa-dog', 'fa-horse', 'fa-frog', 'fa-fish', 'fa-spider', 'fa-bug', 'fa-crow', 'fa-dove', 'fa-hippo', 'fa-otter', 'fa-worm', 'fa-snowman', 'fa-mask', 'fa-poop', 'fa-motorcycle', 'fa-car', 'fa-plane', 'fa-rocket', 'fa-ship'];
+        const allIcons = ['fa-user', 'fa-headphones', 'fa-guitar', 'fa-microphone', 'fa-compact-disc', 'fa-radio', 'fa-record-vinyl'];
         let selectedAvatarClass = '';
         
         function renderAvatars() {
             const avatarGrid = document.getElementById('avatar-grid'); avatarGrid.innerHTML = '';
-            const random10 = allIcons.sort(() => 0.5 - Math.random()).slice(0, 10);
-            random10.forEach(icon => {
+            allIcons.forEach(icon => {
                 const btn = document.createElement('button');
                 btn.className = 'avatar-btn rounded-xl bg-white shadow-sm flex items-center justify-center p-3';
                 btn.innerHTML = `<i class="fa-solid ${icon}"></i>`;
@@ -217,8 +140,9 @@
         }
         renderAvatars();
 
-        const categoryNames = { prakerja: "Prakerja", sejarah: "Sejarah", islam: "Islam", agama: "Agama", logika: "Logika", sastra: "Sastra", ekonomi: "Ekonomi", hukum: "Hukum" };
-        let sessionQuestions = [], currentQuestionIndex = 0, score = 0, playerName = "", timeLeft = 15, timerInterval, isAnswering = false;
+        let sessionSongs = [], currentQuestionIndex = 0, score = 0, playerName = "";
+        let timeLeft = 20, timerInterval, isAnswering = false;
+        let currentStage = 1; // 1 = Tebak Penyanyi, 2 = Tebak Judul
 
         function prepareGame() {
             const name = document.getElementById('player-name').value.trim();
@@ -226,59 +150,29 @@
             if (name === "" || selectedAvatarClass === "") { errorMsg.classList.remove('hidden'); return; }
             errorMsg.classList.add('hidden'); playerName = name;
             
-            sessionQuestions = [];
-            for (const key in questionBank) {
-                const qs = questionBank[key];
-                const rawQ = qs[Math.floor(Math.random() * qs.length)];
-                
-                const originalOptions = [...rawQ.o];
-                const correctText = originalOptions[rawQ.a];
-                const shuffledOptions = [...originalOptions].sort(() => Math.random() - 0.5);
-                const newCorrectIndex = shuffledOptions.indexOf(correctText);
-                
-                sessionQuestions.push({ category: categoryNames[key], q: rawQ.q, o: shuffledOptions, a: newCorrectIndex });
-            }
-            sessionQuestions.sort(() => Math.random() - 0.5);
+            // Acak 10 lagu dari bank
+            let shuffledBank = [...songBank].sort(() => 0.5 - Math.random());
+            sessionSongs = shuffledBank.slice(0, 10);
+            
             startGame();
         }
 
-        // --- SOLUSI OPSI 1: COUNTDOWN TRANSPARAN ---
         function startGame() {
-            currentQuestionIndex = 0; score = 0; document.getElementById('score-display').innerText = "0";
-            
-            // Sembunyikan Start Screen
             document.getElementById('start-screen').classList.add('hidden');
-            
             const countdownScreen = document.getElementById('countdown-screen');
-            const countdownTitle = document.getElementById('countdown-title');
-            const countdownCircle = document.getElementById('countdown-circle');
             const countdownNumber = document.getElementById('countdown-number');
-            const countdownMessage = document.getElementById('countdown-message');
             
-            // Tembak Layar Jadi Nyata (Opsi 1)
             countdownScreen.classList.replace('opacity-0', 'opacity-100');
             countdownScreen.classList.replace('z-[-1]', 'z-[100]');
-            countdownScreen.classList.replace('pointer-events-none', 'pointer-events-auto');
 
-            countdownMessage.classList.add('hidden');
-            countdownTitle.style.opacity = '1';
-            countdownCircle.style.opacity = '1';
-
-            stopAudio(bgmOpening); 
-            playAudio(sfxCountdown);
-
-            let count = 5;
-            
-            // Fungsi pemanggil animasi
-            function triggerAnim(num) {
-                countdownNumber.innerText = num;
-                countdownNumber.classList.remove('animate-pop', 'opacity-0');
-                void countdownNumber.offsetWidth; 
-                countdownNumber.classList.add('animate-pop');
-            }
-
-            // Mulai berhitung setelah transisi opacity selesai
             setTimeout(() => {
+                let count = 5;
+                function triggerAnim(num) {
+                    countdownNumber.innerText = num;
+                    countdownNumber.classList.remove('animate-pop', 'opacity-0');
+                    void countdownNumber.offsetWidth; 
+                    countdownNumber.classList.add('animate-pop');
+                }
                 triggerAnim(count);
 
                 const countInterval = setInterval(() => {
@@ -287,109 +181,175 @@
                         triggerAnim(count);
                     } else {
                         clearInterval(countInterval);
-                        countdownTitle.style.opacity = '0';
-                        countdownCircle.style.opacity = '0';
-                        countdownMessage.classList.remove('hidden');
+                        countdownScreen.classList.replace('opacity-100', 'opacity-0');
+                        countdownScreen.classList.replace('z-[100]', 'z-[-1]');
+                        document.getElementById('game-screen').classList.remove('hidden');
                         
-                        setTimeout(() => {
-                            // Hilangkan layar countdown kembali ke transparan
-                            countdownScreen.classList.replace('opacity-100', 'opacity-0');
-                            countdownScreen.classList.replace('z-[100]', 'z-[-1]');
-                            countdownScreen.classList.replace('pointer-events-auto', 'pointer-events-none');
-                            
-                            // Masuk ke gameplay
-                            document.getElementById('game-screen').classList.remove('hidden');
-                            playAudio(bgmGameplay); 
-                            loadQuestion();
-                        }, 800); 
+                        loadQuestion(); // Mulai soal pertama
                     }
                 }, 1000);
             }, 100);
         }
 
-        function loadQuestion() {
-            isAnswering = false; const q = sessionQuestions[currentQuestionIndex];
+        // TUGAS BERAT: Mengambil Audio dari Apple Music
+        async function fetchAudioUrl(artist, title) {
+            const query = encodeURIComponent(`${artist} ${title}`);
+            try {
+                // Tembak API gratis Apple iTunes Search
+                const res = await fetch(`https://itunes.apple.com/search?term=${query}&entity=song&limit=1`);
+                const data = await res.json();
+                if (data.results && data.results.length > 0) {
+                    return data.results[0].previewUrl; // Dapat link MP3 30 detik
+                }
+            } catch (e) { console.error("Gagal cari lagu", e); }
+            return null;
+        }
+
+        async function loadQuestion() {
+            isAnswering = false; currentStage = 1; // Selalu mulai dari tebak penyanyi
+            const song = sessionSongs[currentQuestionIndex];
+            
             document.getElementById('question-number').innerText = currentQuestionIndex + 1;
-            document.getElementById('category-badge').innerText = q.category;
-            document.getElementById('question-text').innerText = q.q;
-            document.getElementById('progress-bar').style.width = `${((currentQuestionIndex) / sessionQuestions.length) * 100}%`;
+            document.getElementById('progress-bar').style.width = `${((currentQuestionIndex) / sessionSongs.length) * 100}%`;
+            document.getElementById('cassette-ui').classList.remove('spin-slow');
 
-            const optionsContainer = document.getElementById('options-container'); optionsContainer.innerHTML = '';
-            q.o.forEach((opt, index) => {
-                const btn = document.createElement('button');
-                btn.className = "option-btn w-full text-left p-3 rounded-xl border-2 font-bold focus:outline-none text-sm md:text-base";
-                btn.innerHTML = `<span class="inline-block w-7 h-7 bg-gray-100 rounded-full text-center leading-7 mr-2 text-gray-600 font-extrabold letter-badge text-sm">${String.fromCharCode(65 + index)}</span> <span class="opt-text">${opt}</span>`;
-                btn.onclick = () => selectAnswer(index, btn); optionsContainer.appendChild(btn);
-            });
+            // 1. Tampilkan layar loading saat mencari lagu
+            document.getElementById('audio-loading').classList.remove('hidden');
+            
+            // 2. Cari audio di Apple Music
+            const audioUrl = await fetchAudioUrl(song.artist, song.title);
+            
+            document.getElementById('audio-loading').classList.add('hidden');
 
-            timeLeft = 15; document.getElementById('timer-display').innerText = timeLeft;
-            document.getElementById('timer-display').parentElement.classList.replace('bg-red-600', 'bg-emerald-800');
-            document.getElementById('timer-display').parentElement.classList.remove('animate-pulse');
-            
-            playAudio(sfxTick); 
-            
+            // Jika lagu tidak ketemu di API Apple, langsung skip (kasih nilai gratis 500 sebagai kompensasi error)
+            if(!audioUrl) {
+                alert(`Maaf, lagu ${song.title} gagal dimuat dari server. Lanjut lagu berikutnya!`);
+                score += 500; animateScore(score);
+                nextQuestion();
+                return;
+            }
+
+            // 3. Putar Lagu
+            if(activeAudio) { activeAudio.pause(); }
+            activeAudio = new Audio(audioUrl);
+            activeAudio.play();
+            document.getElementById('cassette-ui').classList.add('spin-slow'); // Kaset mutar
+
+            // 4. Render UI Tahap 1
+            renderStageUI();
+
+            // 5. Mulai Timer 20 Detik
+            timeLeft = 20; document.getElementById('timer-display').innerText = timeLeft;
             clearInterval(timerInterval); timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function renderStageUI() {
+            const song = sessionSongs[currentQuestionIndex];
+            const optionsContainer = document.getElementById('options-container'); 
+            optionsContainer.innerHTML = '';
+
+            if (currentStage === 1) {
+                document.getElementById('stage-badge').innerText = "TAHAP 1: SIAPA PENYANYINYA?";
+                document.getElementById('stage-badge').className = "inline-block bg-blue-100 text-blue-800 text-xs font-black px-3 py-1 rounded-full mb-3 uppercase tracking-wider";
+                
+                // Render opsi penyanyi (acak posisinya)
+                let options = [...song.artistOptions].sort(() => Math.random() - 0.5);
+                options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = "option-btn w-full text-center p-3 rounded-xl border-2 font-bold focus:outline-none";
+                    btn.innerText = opt;
+                    btn.onclick = () => handleAnswer(opt === song.artist, btn, song.artist); 
+                    optionsContainer.appendChild(btn);
+                });
+            } else {
+                document.getElementById('stage-badge').innerText = "TAHAP 2: APA JUDUL LAGUNYA?";
+                document.getElementById('stage-badge').className = "inline-block bg-yellow-100 text-yellow-800 text-xs font-black px-3 py-1 rounded-full mb-3 uppercase tracking-wider";
+                
+                // Render opsi judul (acak posisinya)
+                let options = [...song.titleOptions].sort(() => Math.random() - 0.5);
+                options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = "option-btn w-full text-center p-3 rounded-xl border-2 font-bold focus:outline-none";
+                    btn.innerText = opt;
+                    btn.onclick = () => handleAnswer(opt === song.title, btn, song.title); 
+                    optionsContainer.appendChild(btn);
+                });
+            }
         }
 
         function updateTimer() {
             timeLeft--; document.getElementById('timer-display').innerText = timeLeft;
-            if (timeLeft === 5) {
-                document.getElementById('timer-display').parentElement.classList.replace('bg-emerald-800', 'bg-red-600');
-                document.getElementById('timer-display').parentElement.classList.add('animate-pulse');
+            if (timeLeft <= 0) { 
+                clearInterval(timerInterval); 
+                if(activeAudio) activeAudio.pause();
+                document.getElementById('cassette-ui').classList.remove('spin-slow');
+                showFeedback(false, "Waktu Habis!");
+                setTimeout(nextQuestion, 1500); 
             }
-            if (timeLeft <= 0) { clearInterval(timerInterval); handleTimeOut(); }
         }
 
-        function handleTimeOut() {
-            if (isAnswering) return; isAnswering = true; 
-            stopAudio(sfxTick); playAudio(sfxTimeout);
-            showFeedback(false, "Waktu Habis!");
+        function handleAnswer(isCorrect, selectedBtn, correctAnswer) {
+            if (isAnswering) return; 
+            isAnswering = true;
+            
             const buttons = document.getElementById('options-container').querySelectorAll('button');
-            buttons.forEach((btn, idx) => {
-                btn.disabled = true; btn.classList.add('opacity-40', 'cursor-not-allowed');
-                if (idx === sessionQuestions[currentQuestionIndex].a) highlightCorrect(btn);
+            buttons.forEach(btn => { 
+                btn.disabled = true; 
+                if(btn.innerText === correctAnswer) {
+                    btn.style.borderColor = '#10b981'; btn.style.backgroundColor = '#d1fae5'; btn.style.color = '#065f46';
+                } else {
+                    btn.classList.add('opacity-50');
+                }
             });
-            setTimeout(nextQuestion, 2000);
-        }
 
-        function selectAnswer(selectedIndex, selectedBtn) {
-            if (isAnswering) return; isAnswering = true; clearInterval(timerInterval);
-            document.getElementById('timer-display').parentElement.classList.remove('animate-pulse');
-            stopAudio(sfxTick);
-            
-            const q = sessionQuestions[currentQuestionIndex];
-            const buttons = document.getElementById('options-container').querySelectorAll('button');
-            buttons.forEach(btn => { btn.disabled = true; btn.classList.add('cursor-not-allowed', 'opacity-50'); });
-            selectedBtn.classList.remove('opacity-50');
-            
-            if (selectedIndex === q.a) {
-                highlightCorrect(selectedBtn); playAudio(sfxRight);
-                const pointsEarned = 1000 + (timeLeft * 50); score += pointsEarned; animateScore(score);
-                showFeedback(true, `+${pointsEarned}`);
+            if (isCorrect) {
+                selectedBtn.style.borderColor = '#10b981'; selectedBtn.style.backgroundColor = '#d1fae5';
+                sfxRight.currentTime = 0; sfxRight.play();
+                
+                if (currentStage === 1) {
+                    // Lanjut ke Tahap 2 (Tidak stop timer, tidak stop lagu)
+                    showFeedback(true, "BENAR! Lanjut Judul!");
+                    setTimeout(() => {
+                        currentStage = 2;
+                        isAnswering = false;
+                        renderStageUI(); // Render tombol judul
+                    }, 1200);
+                } else {
+                    // Selesai Tahap 2 dengan benar
+                    clearInterval(timerInterval);
+                    if(activeAudio) activeAudio.pause();
+                    document.getElementById('cassette-ui').classList.remove('spin-slow');
+                    
+                    const points = 1000 + (timeLeft * 50); // Poin Sempurna + Bonus waktu
+                    score += points; animateScore(score);
+                    showFeedback(true, `SEMPURNA! +${points}`);
+                    setTimeout(nextQuestion, 1500);
+                }
             } else {
-                highlightWrong(selectedBtn); highlightCorrect(buttons[q.a]); playAudio(sfxTimeout);
-                showFeedback(false, "Salah!");
-            }
-            setTimeout(nextQuestion, 1500);
-        }
+                // Salah di tahap mana pun = Game over untuk lagu ini
+                selectedBtn.style.borderColor = '#ef4444'; selectedBtn.style.backgroundColor = '#fee2e2';
+                sfxWrong.currentTime = 0; sfxWrong.play();
+                clearInterval(timerInterval);
+                if(activeAudio) activeAudio.pause();
+                document.getElementById('cassette-ui').classList.remove('spin-slow');
 
-        function highlightCorrect(btn) {
-            btn.classList.remove('opacity-50', 'opacity-40');
-            btn.style.borderColor = '#10b981'; btn.style.backgroundColor = '#d1fae5'; btn.style.color = '#065f46';
-            btn.querySelector('.letter-badge').style.backgroundColor = '#10b981'; btn.querySelector('.letter-badge').style.color = '#ffffff';
-        }
-        function highlightWrong(btn) {
-            btn.style.borderColor = '#ef4444'; btn.style.backgroundColor = '#fee2e2'; btn.style.color = '#991b1b';
-            btn.querySelector('.letter-badge').style.backgroundColor = '#ef4444'; btn.querySelector('.letter-badge').style.color = '#ffffff';
+                if (currentStage === 1) {
+                    showFeedback(false, "NOL BESAR!"); // Salah penyanyi = 0
+                } else {
+                    score += 500; animateScore(score); // Setengah poin karena penyanyi benar
+                    showFeedback(false, "SAYANG SEKALI! +500");
+                }
+                setTimeout(nextQuestion, 2000);
+            }
         }
 
         function showFeedback(isCorrect, text) {
             const container = document.getElementById('feedback-container'); const content = document.getElementById('feedback-content');
             container.classList.remove('hidden');
             content.innerHTML = isCorrect 
-                ? `<div class="bg-white rounded-full p-3 shadow-xl mb-2"><i class="fa-solid fa-check text-4xl text-green-500"></i></div><span class="font-black text-2xl text-green-600 drop-shadow-md">${text}</span>`
-                : `<div class="bg-white rounded-full p-3 shadow-xl mb-2"><i class="fa-solid fa-xmark text-4xl text-red-500"></i></div><span class="font-black text-2xl text-red-600 drop-shadow-md">${text}</span>`;
-            content.style.transform = 'scale(1)'; setTimeout(() => { container.classList.add('hidden'); content.style.transform = 'scale(1.5)'; }, 1300);
+                ? `<div class="bg-white rounded-full p-3 shadow-xl mb-2"><i class="fa-solid fa-check text-4xl text-green-500"></i></div><span class="font-black text-2xl text-green-600 drop-shadow-md text-center">${text}</span>`
+                : `<div class="bg-white rounded-full p-3 shadow-xl mb-2"><i class="fa-solid fa-xmark text-4xl text-red-500"></i></div><span class="font-black text-2xl text-red-600 drop-shadow-md text-center">${text}</span>`;
+            content.style.transform = 'scale(1)'; setTimeout(() => { container.classList.add('hidden'); content.style.transform = 'scale(1.5)'; }, 1000);
         }
 
         function animateScore(targetScore) {
@@ -404,111 +364,21 @@
 
         function nextQuestion() {
             currentQuestionIndex++;
-            if (currentQuestionIndex < sessionQuestions.length) {
-                if(bgmGameplay.paused) playAudio(bgmGameplay);
+            if (currentQuestionIndex < sessionSongs.length) {
                 loadQuestion(); 
             } else {
                 endGame();
             }
         }
 
-        function getRank(finalScore) {
-            if (finalScore <= 4000) return { title: "Kerupuk Melempem", desc: "Waduh, wawasan agak melempem nih." };
-            if (finalScore <= 8000) return { title: "Ketupat Sayur Standar", desc: "Lumayan gurih buat diajak ngobrol!" };
-            if (finalScore <= 12000) return { title: "Opor Ayam Kental", desc: "Mantap! Wawasan luas & respon cepat." };
-            return { title: "Rendang Premium", desc: "Suhu BO2 Prakerja! Valid no debat!" };
-        }
-
-        async function endGame() {
-            stopAudio(bgmGameplay); stopAudio(sfxTick); playAudio(bgmEnding);
-            document.getElementById('game-screen').classList.add('hidden'); document.getElementById('progress-bar').style.width = `100%`;
-            const rankInfo = getRank(score);
+        function endGame() {
+            document.getElementById('game-screen').classList.add('hidden');
             document.getElementById('final-avatar').innerHTML = selectedAvatarClass; 
             document.getElementById('final-name').innerText = playerName;
             document.getElementById('final-score').innerText = score.toLocaleString('id-ID');
-            document.getElementById('final-rank').innerText = rankInfo.title; document.getElementById('rank-description').innerText = rankInfo.desc;
-            document.getElementById('result-screen').classList.remove('hidden'); document.getElementById('result-screen').classList.add('fade-in');
-
-            try {
-                const avatarIconStr = selectedAvatarClass.match(/fa-[a-z-]+/g).join(' ');
-                await fetch('/.netlify/functions/scores', {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: playerName, avatar: avatarIconStr, score: score, rank: rankInfo.title })
-                });
-            } catch (error) { console.error("Gagal simpan skor", error); }
+            document.getElementById('result-screen').classList.remove('hidden'); 
+            document.getElementById('result-screen').classList.add('fade-in');
         }
-
-        async function showLeaderboard() {
-            if(!document.getElementById('start-screen').classList.contains('hidden')) { stopAudio(bgmOpening); }
-            
-            document.getElementById('leaderboard-screen').classList.remove('hidden'); document.getElementById('leaderboard-screen').style.display = 'flex';
-            const listContainer = document.getElementById('leaderboard-list');
-            listContainer.innerHTML = `<div class="text-center text-gray-500 mt-10"><i class="fa-solid fa-circle-notch fa-spin text-2xl mb-2"></i><br>Mencari data dari Server...</div>`;
-
-            try {
-                const response = await fetch('/.netlify/functions/scores');
-                if (!response.ok) throw new Error("API tidak merespon");
-                const scores = await response.json();
-                if(scores.length === 0) { listContainer.innerHTML = `<div class="text-center text-gray-500 mt-10">Belum ada pemain. Jadilah yang pertama!</div>`; return; }
-
-                listContainer.innerHTML = '';
-                scores.forEach((s, index) => {
-                    let medal = ''; let bgClass = 'bg-white border-gray-200';
-                    if (index === 0) { medal = '🥇'; bgClass = 'bg-yellow-50 border-yellow-300'; }
-                    else if (index === 1) { medal = '🥈'; bgClass = 'bg-gray-100 border-gray-300'; }
-                    else if (index === 2) { medal = '🥉'; bgClass = 'bg-orange-50 border-orange-200'; }
-
-                    const item = document.createElement('div');
-                    item.className = `flex items-center justify-between p-3 mb-2 rounded-xl border ${bgClass} shadow-sm transition-transform hover:scale-[1.02]`;
-                    item.innerHTML = `
-                        <div class="flex items-center">
-                            <span class="w-6 font-bold text-gray-400 text-sm">${index + 1}.</span>
-                            <span class="text-3xl mx-2 text-emerald-600"><i class="${s.avatar || 'fa-solid fa-user'}"></i></span>
-                            <div class="flex flex-col"><span class="font-bold text-gray-800 text-[15px]">${s.name} ${medal}</span><span class="text-[10px] text-gray-500">${s.rank}</span></div>
-                        </div>
-                        <div class="font-black text-emerald-600 text-lg">${parseInt(s.score).toLocaleString('id-ID')}</div>
-                    `;
-                    listContainer.appendChild(item);
-                });
-            } catch (error) {
-                listContainer.innerHTML = `<div class="text-center text-red-500 mt-10"><i class="fa-solid fa-triangle-exclamation text-3xl mb-2"></i><br>Akses Database Gagal!</div>`;
-            }
-        }
-
-        async function resetDatabase() {
-            const pwd = prompt("PERINGATAN! Tindakan ini akan menghapus semua skor pemain.\n\nMasukkan Password Admin:");
-            if (pwd === "19AG") {
-                try {
-                    const response = await fetch('/.netlify/functions/scores', {
-                        method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: pwd })
-                    });
-                    const data = await response.json();
-                    if(data.success) { alert("Berhasil! Seluruh Papan Skor telah direset."); showLeaderboard(); } 
-                    else { alert("Gagal mereset: " + data.error); }
-                } catch (error) { alert("Terjadi kesalahan jaringan."); }
-            } else if (pwd !== null) { alert("Password Salah! Akses ditolak."); }
-        }
-
-        function closeLeaderboard() { 
-            document.getElementById('leaderboard-screen').classList.add('hidden'); document.getElementById('leaderboard-screen').style.display = 'none'; 
-            if(!document.getElementById('start-screen').classList.contains('hidden') && audioInitialized) { playAudio(bgmOpening); }
-        }
-
-        function shareToWA() {
-            const rankTitle = document.getElementById('final-rank').innerText; const finalScore = score.toLocaleString('id-ID');
-            let gameUrl = window.location.href; if(gameUrl.startsWith('file://') || gameUrl.includes('localhost')) { gameUrl = "(Link web Netlify)"; }
-            const text = `*Minal Aidin wal Faizin!* 🙏\n\nSaya *${playerName}* baru saja masuk Papan Skor Kuis Spesial Lebaran BO2!\n\n🏆 Gelar: *${rankTitle}*\n⭐ Skor: *${finalScore}*\n\nBerani geser posisi saya di Papan Skor Top 10? Coba main di sini:\n${gameUrl}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
-        }
-
-        function resetGame() {
-            stopAudio(bgmEnding);
-            document.getElementById('result-screen').classList.add('hidden'); document.getElementById('start-screen').classList.remove('hidden');
-            document.getElementById('start-screen').classList.add('fade-in'); document.getElementById('player-name').value = ''; 
-            selectedAvatarClass = ''; renderAvatars(); playAudio(bgmOpening);
-        }
-
-        document.getElementById('player-name').addEventListener("keypress", function(event) { if (event.key === "Enter") { event.preventDefault(); prepareGame(); } });
     </script>
 </body>
 </html>
