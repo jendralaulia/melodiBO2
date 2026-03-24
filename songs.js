@@ -56,7 +56,7 @@ const songBank = [
     { artist: "Anji", title: "Dia", origin: "Indonesia", era: "2010-an", artistOptions: ["Anji", "Virgoun", "Cakra Khan", "Judika"], titleOptions: ["Dia", "Bidadari Tak Bersayap", "Menunggu Kamu", "Kekasih Terhebat"] },
 
     // ==========================================
-    // 5. INDONESIA - 2020-an (10 Lagu - Baru & Aman)
+    // 5. INDONESIA - 2020-an (10 Lagu)
     // ==========================================
     { artist: "Rizky Febian", title: "Makna Cinta", origin: "Indonesia", era: "2020-an", artistOptions: ["Rizky Febian", "Arsy Widianto", "Budi Doremi", "Andmesh"], titleOptions: ["Makna Cinta", "Cuek", "Kesempurnaan Cinta", "Penantian Berharga"] },
     { artist: "Hindia", title: "Evaluasi", origin: "Indonesia", era: "2020-an", artistOptions: ["Hindia", "Pamungkas", "Kunto Aji", "Sal Priadi"], titleOptions: ["Evaluasi", "Secukupnya", "Rumah Ke Rumah", "Cincin"] },
@@ -84,7 +84,7 @@ const songBank = [
     { artist: "The Police", title: "Every Breath You Take", origin: "Barat", era: "80-an", artistOptions: ["The Police", "U2", "The Clash", "Dire Straits"], titleOptions: ["Every Breath You Take", "Roxanne", "Message in a Bottle", "Don't Stand So Close to Me"] },
 
     // ==========================================
-    // 7. BARAT - 90-an (10 Lagu - Baru & Aman)
+    // 7. BARAT - 90-an (10 Lagu)
     // ==========================================
     { artist: "Nirvana", title: "Smells Like Teen Spirit", origin: "Barat", era: "90-an", artistOptions: ["Nirvana", "Pearl Jam", "Green Day", "Foo Fighters"], titleOptions: ["Smells Like Teen Spirit", "Come As You Are", "Lithium", "In Bloom"] },
     { artist: "Oasis", title: "Wonderwall", origin: "Barat", era: "90-an", artistOptions: ["Oasis", "Blur", "Radiohead", "Coldplay"], titleOptions: ["Wonderwall", "Don't Look Back In Anger", "Champagne Supernova", "Live Forever"] },
@@ -98,7 +98,7 @@ const songBank = [
     { artist: "Green Day", title: "Basket Case", origin: "Barat", era: "90-an", artistOptions: ["Green Day", "Blink-182", "The Offspring", "Sum 41"], titleOptions: ["Basket Case", "American Idiot", "Boulevard of Broken Dreams", "Wake Me Up When September Ends"] },
 
     // ==========================================
-    // 8. BARAT - 2000-an (10 Lagu - Baru & Aman)
+    // 8. BARAT - 2000-an (10 Lagu)
     // ==========================================
     { artist: "Coldplay", title: "Yellow", origin: "Barat", era: "2000-an", artistOptions: ["Coldplay", "Muse", "Maroon 5", "Keane"], titleOptions: ["Yellow", "Fix You", "The Scientist", "Viva La Vida"] },
     { artist: "Evanescence", title: "Bring Me To Life", origin: "Barat", era: "2000-an", artistOptions: ["Evanescence", "Linkin Park", "Paramore", "Nightwish"], titleOptions: ["Bring Me To Life", "My Immortal", "Going Under", "Call Me When You're Sober"] },
@@ -112,23 +112,23 @@ const songBank = [
     { artist: "Train", title: "Hey, Soul Sister", origin: "Barat", era: "2000-an", artistOptions: ["Train", "The Fray", "Plain White T's", "Owl City"], titleOptions: ["Hey, Soul Sister", "Drops of Jupiter", "Drive By", "Marry Me"] },
 
     // ==========================================
-    // 9. BARAT - 2010-an (10 Lagu - Baru & Aman)
+    // 9. BARAT - 2010-an (10 Lagu - DENGAN PENGGANTI)
     // ==========================================
     { artist: "John Legend", title: "All of Me", origin: "Barat", era: "2010-an", artistOptions: ["John Legend", "Sam Smith", "Ed Sheeran", "Bruno Mars"], titleOptions: ["All of Me", "Ordinary People", "Love Me Now", "Stay With You"] },
     { artist: "Imagine Dragons", title: "Radioactive", origin: "Barat", era: "2010-an", artistOptions: ["Imagine Dragons", "OneRepublic", "Coldplay", "The Killers"], titleOptions: ["Radioactive", "Demons", "Believer", "Thunder"] },
-    { artist: "Bruno Mars", title: "Uptown Funk", origin: "Barat", era: "2010-an", artistOptions: ["Bruno Mars", "The Weeknd", "Maroon 5", "Justin Timberlake"], titleOptions: ["Uptown Funk", "That's What I Like", "Just the Way You Are", "Locked Out of Heaven"] },
+    { artist: "Pharrell Williams", title: "Happy", origin: "Barat", era: "2010-an", artistOptions: ["Pharrell Williams", "Justin Timberlake", "Bruno Mars", "Robin Thicke"], titleOptions: ["Happy", "Get Lucky", "Blurred Lines", "Treasure"] },
     { artist: "Katy Perry", title: "Roar", origin: "Barat", era: "2010-an", artistOptions: ["Katy Perry", "Taylor Swift", "Lady Gaga", "Rihanna"], titleOptions: ["Roar", "Firework", "Dark Horse", "California Gurls"] },
-    { artist: "Justin Timberlake", title: "CAN'T STOP THE FEELING!", origin: "Barat", era: "2010-an", artistOptions: ["Justin Timberlake", "Bruno Mars", "Pharrell Williams", "Robin Thicke"], titleOptions: ["CAN'T STOP THE FEELING!", "Mirrors", "Cry Me a River", "SexyBack"] },
     { artist: "Billie Eilish", title: "bad guy", origin: "Barat", era: "2010-an", artistOptions: ["Billie Eilish", "Lorde", "Halsey", "Melanie Martinez"], titleOptions: ["bad guy", "ocean eyes", "when the party's over", "everything i wanted"] },
     { artist: "The Weeknd", title: "Starboy", origin: "Barat", era: "2010-an", artistOptions: ["The Weeknd", "Bruno Mars", "Drake", "Post Malone"], titleOptions: ["Starboy", "Blinding Lights", "The Hills", "Can't Feel My Face"] },
     { artist: "Dua Lipa", title: "New Rules", origin: "Barat", era: "2010-an", artistOptions: ["Dua Lipa", "Ariana Grande", "Camila Cabello", "Bebe Rexha"], titleOptions: ["New Rules", "Don't Start Now", "Levitating", "IDGAF"] },
     { artist: "Ariana Grande", title: "thank u, next", origin: "Barat", era: "2010-an", artistOptions: ["Ariana Grande", "Selena Gomez", "Demi Lovato", "Miley Cyrus"], titleOptions: ["thank u, next", "7 rings", "Into You", "no tears left to cry"] },
     { artist: "Justin Bieber", title: "Sorry", origin: "Barat", era: "2010-an", artistOptions: ["Justin Bieber", "Shawn Mendes", "Zayn", "Charlie Puth"], titleOptions: ["Sorry", "Love Yourself", "Baby", "What Do You Mean?"] },
+    { artist: "Ed Sheeran", title: "Shape of You", origin: "Barat", era: "2010-an", artistOptions: ["Ed Sheeran", "Justin Bieber", "Shawn Mendes", "Charlie Puth"], titleOptions: ["Shape of You", "Thinking Out Loud", "Perfect", "Photograph"] },
 
     // ==========================================
-    // 10. BARAT - 2020-an (10 Lagu - Baru & Aman)
+    // 10. BARAT - 2020-an (10 Lagu - DENGAN PENGGANTI)
     // ==========================================
-    { artist: "Glass Animals", title: "Heat Waves", origin: "Barat", era: "2020-an", artistOptions: ["Glass Animals", "Arctic Monkeys", "Tame Impala", "The Neighbourhood"], titleOptions: ["Heat Waves", "Gooey", "Youth", "Space Ghost Coast To Coast"] },
+    { artist: "OneRepublic", title: "I Ain't Worried", origin: "Barat", era: "2020-an", artistOptions: ["OneRepublic", "Imagine Dragons", "Coldplay", "Maroon 5"], titleOptions: ["I Ain't Worried", "Counting Stars", "Bones", "Memories"] },
     { artist: "The Weeknd", title: "Save Your Tears", origin: "Barat", era: "2020-an", artistOptions: ["The Weeknd", "Post Malone", "Harry Styles", "Bruno Mars"], titleOptions: ["Save Your Tears", "Blinding Lights", "Starboy", "Die For You"] },
     { artist: "Miley Cyrus", title: "Flowers", origin: "Barat", era: "2020-an", artistOptions: ["Miley Cyrus", "Dua Lipa", "Katy Perry", "Lady Gaga"], titleOptions: ["Flowers", "Wrecking Ball", "Party In The U.S.A.", "Midnight Sky"] },
     { artist: "The Kid LAROI", title: "STAY", origin: "Barat", era: "2020-an", artistOptions: ["The Kid LAROI", "Justin Bieber", "Post Malone", "Shawn Mendes"], titleOptions: ["STAY", "WITHOUT YOU", "Thousand Miles", "Love Again"] },
