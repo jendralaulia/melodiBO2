@@ -1,4 +1,3 @@
-// Bank Lagu Kuis Nada - Total 9 Lagu Testing (Tanpa Linkin Park)
 const songBank = [
     {
         artist: "Dewa 19",
@@ -53,5 +52,11 @@ const songBank = [
         title: "Ruang Rindu",
         artistOptions: ["Letto", "Nidji", "D'Masiv", "Samsons"],
         titleOptions: ["Ruang Rindu", "Sebelum Cahaya", "Sandaran Hati", "Permintaan Hati"]
+    },
+    {
+        artist: "Padi",
+        title: "Kasih Tak Sampai",
+        artistOptions: ["Padi", "Dewa 19", "Sheila On 7", "Ari Lasso"],
+        titleOptions: ["Kasih Tak Sampai", "Begitu Indah", "Semua Tak Sama", "Mahadewi"]
     }
 ];
