@@ -1,4 +1,4 @@
-// Bank Lagu Kuis Nada - Total 10 Lagu Testing
+// Bank Lagu Kuis Nada - Total 9 Lagu Testing (Tanpa Linkin Park)
 const songBank = [
     {
         artist: "Dewa 19",
@@ -53,11 +53,5 @@ const songBank = [
         title: "Ruang Rindu",
         artistOptions: ["Letto", "Nidji", "D'Masiv", "Samsons"],
         titleOptions: ["Ruang Rindu", "Sebelum Cahaya", "Sandaran Hati", "Permintaan Hati"]
-    },
-    {
-        artist: "Linkin Park",
-        title: "In The End",
-        artistOptions: ["Linkin Park", "Limp Bizkit", "Green Day", "Evanescence"],
-        titleOptions: ["In The End", "Numb", "Crawling", "Somewhere I Belong"]
     }
 ];
