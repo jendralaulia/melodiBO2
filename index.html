@@ -183,26 +183,29 @@
 
     <script>
         const bgmOpening = new Audio('bgm-opening.mp3'); bgmOpening.loop = true;
-        const sfxCountdown = new Audio('sfx-countdown.mp3'); sfxCountdown.playbackRate = 2.0;
+        const sfxCountdown = new Audio('sfx-countdown.mp3'); 
         const sfxRight = new Audio('sfx-right.mp3');
         const sfxWrong = new Audio('sfx-timeout.mp3');
         
         let activeAudio = null; 
+        let isBgmPlaying = false;
 
         const allIcons = ['fa-microphone', 'fa-guitar', 'fa-headphones', 'fa-compact-disc', 'fa-fire', 'fa-glasses', 'fa-music'];
         let selectedAvatarClass = '';
         
         function renderAvatars() {
-            const avatarGrid = document.getElementById('avatar-grid'); avatarGrid.innerHTML = '';
-            allIcons.forEach(icon => {
-                const btn = document.createElement('button');
-                btn.className = 'avatar-btn rounded-xl bg-gray-900 shadow-inner flex items-center justify-center p-3 border border-gray-700';
-                btn.innerHTML = `<i class="fa-solid ${icon}"></i>`;
-                btn.onclick = () => {
-                    document.querySelectorAll('.avatar-btn').forEach(b => b.classList.remove('selected'));
-                    btn.classList.add('selected'); selectedAvatarClass = `<i class="fa-solid ${icon}"></i>`;
-                }; avatarGrid.appendChild(btn);
-            });
+            try {
+                const avatarGrid = document.getElementById('avatar-grid'); avatarGrid.innerHTML = '';
+                allIcons.forEach(icon => {
+                    const btn = document.createElement('button');
+                    btn.className = 'avatar-btn rounded-xl bg-gray-900 shadow-inner flex items-center justify-center p-3 border border-gray-700';
+                    btn.innerHTML = `<i class="fa-solid ${icon}"></i>`;
+                    btn.onclick = () => {
+                        document.querySelectorAll('.avatar-btn').forEach(b => b.classList.remove('selected'));
+                        btn.classList.add('selected'); selectedAvatarClass = `<i class="fa-solid ${icon}"></i>`;
+                    }; avatarGrid.appendChild(btn);
+                });
+            } catch(e) { console.error("Error Avatar:", e); }
         }
         renderAvatars();
 
@@ -211,82 +214,97 @@
         let currentStage = 1; 
 
         document.body.addEventListener('click', () => {
-            if(!activeAudio && !bgmOpening.playing && document.getElementById('splash-screen').style.display !== 'none') {
+            if(!activeAudio && document.getElementById('splash-screen').style.display !== 'none') {
                 playBGMOnInteraction();
             }
         }, {once: true});
 
         function playBGMOnInteraction() {
-            bgmOpening.playing = true;
-            bgmOpening.play().catch(e => {
-                console.log("BGM menunggu interaksi", e);
-                bgmOpening.playing = false;
-            });
+            if(isBgmPlaying) return;
+            bgmOpening.play().then(() => { isBgmPlaying = true; }).catch(e => console.log("BGM Pending"));
         }
 
+        // FUNGSI MASUK YANG SUDAH DIBUAT ANTI-MACET
         function showSetupScreen() {
-            playBGMOnInteraction(); 
-            document.getElementById('splash-screen').classList.add('hidden');
-            document.getElementById('setup-screen').classList.remove('hidden');
-            document.getElementById('setup-screen').classList.add('fade-in');
+            try {
+                playBGMOnInteraction(); 
+                document.getElementById('splash-screen').classList.add('hidden');
+                document.getElementById('setup-screen').classList.remove('hidden');
+                document.getElementById('setup-screen').classList.add('fade-in');
+            } catch (error) {
+                alert("Gagal memuat halaman Setup. Cek script! Error: " + error.message);
+            }
         }
 
         function showInstructions() {
-            const name = document.getElementById('player-name').value.trim();
-            const errorMsg = document.getElementById('input-error');
-            if (name === "" || selectedAvatarClass === "") { errorMsg.classList.remove('hidden'); return; }
-            
-            errorMsg.classList.add('hidden'); 
-            playerName = name;
-            
-            document.getElementById('setup-screen').classList.add('hidden');
-            document.getElementById('instruction-screen').classList.remove('hidden');
-            document.getElementById('instruction-screen').classList.add('fade-in');
+            try {
+                const name = document.getElementById('player-name').value.trim();
+                const errorMsg = document.getElementById('input-error');
+                if (name === "" || selectedAvatarClass === "") { errorMsg.classList.remove('hidden'); return; }
+                
+                errorMsg.classList.add('hidden'); 
+                playerName = name;
+                
+                document.getElementById('setup-screen').classList.add('hidden');
+                document.getElementById('instruction-screen').classList.remove('hidden');
+                document.getElementById('instruction-screen').classList.add('fade-in');
+            } catch (error) {
+                alert("Error di Halaman Instruksi: " + error.message);
+            }
         }
 
         function startGameCountdown() {
-            let shuffledBank = [...songBank].sort(() => 0.5 - Math.random());
-            sessionSongs = shuffledBank.slice(0, 10); // AMBIL 10 LAGU
-
-            document.getElementById('instruction-screen').classList.add('hidden');
-            stopAudio(bgmOpening);
-
-            const countdownScreen = document.getElementById('countdown-screen');
-            const countdownNumber = document.getElementById('countdown-number');
-            
-            countdownScreen.classList.replace('opacity-0', 'opacity-100');
-            countdownScreen.classList.replace('z-[-1]', 'z-[150]');
-            countdownScreen.classList.replace('pointer-events-none', 'pointer-events-auto');
-
-            sfxCountdown.currentTime = 0;
-            sfxCountdown.play();
-
-            setTimeout(() => {
-                let count = 5;
-                function triggerAnim(num) {
-                    countdownNumber.innerText = num;
-                    countdownNumber.classList.remove('animate-pop', 'opacity-0');
-                    void countdownNumber.offsetWidth; 
-                    countdownNumber.classList.add('animate-pop');
+            try {
+                if (typeof songBank === 'undefined') {
+                    alert("BANK LAGU GAGAL DIMUAT! Pastikan file songs.js tidak ada yang terhapus kurungnya.");
+                    return;
                 }
-                triggerAnim(count);
 
-                const countInterval = setInterval(() => {
-                    count--;
-                    if(count > 0) {
-                        triggerAnim(count);
-                    } else {
-                        clearInterval(countInterval);
-                        countdownScreen.classList.replace('opacity-100', 'opacity-0');
-                        countdownScreen.classList.replace('z-[150]', 'z-[-1]');
-                        countdownScreen.classList.replace('pointer-events-auto', 'pointer-events-none');
-                        
-                        document.getElementById('game-screen').classList.remove('hidden');
-                        document.getElementById('game-screen').classList.add('fade-in');
-                        loadQuestion();
+                let shuffledBank = [...songBank].sort(() => 0.5 - Math.random());
+                sessionSongs = shuffledBank.slice(0, 10); // AMBIL 10 LAGU
+
+                document.getElementById('instruction-screen').classList.add('hidden');
+                stopAudio(bgmOpening);
+
+                const countdownScreen = document.getElementById('countdown-screen');
+                const countdownNumber = document.getElementById('countdown-number');
+                
+                countdownScreen.classList.replace('opacity-0', 'opacity-100');
+                countdownScreen.classList.replace('z-[-1]', 'z-[150]');
+                countdownScreen.classList.replace('pointer-events-none', 'pointer-events-auto');
+
+                sfxCountdown.currentTime = 0;
+                sfxCountdown.play().catch(e => console.log("SFX Countdown Pending"));
+
+                setTimeout(() => {
+                    let count = 5;
+                    function triggerAnim(num) {
+                        countdownNumber.innerText = num;
+                        countdownNumber.classList.remove('animate-pop', 'opacity-0');
+                        void countdownNumber.offsetWidth; 
+                        countdownNumber.classList.add('animate-pop');
                     }
-                }, 1000);
-            }, 100);
+                    triggerAnim(count);
+
+                    const countInterval = setInterval(() => {
+                        count--;
+                        if(count > 0) {
+                            triggerAnim(count);
+                        } else {
+                            clearInterval(countInterval);
+                            countdownScreen.classList.replace('opacity-100', 'opacity-0');
+                            countdownScreen.classList.replace('z-[150]', 'z-[-1]');
+                            countdownScreen.classList.replace('pointer-events-auto', 'pointer-events-none');
+                            
+                            document.getElementById('game-screen').classList.remove('hidden');
+                            document.getElementById('game-screen').classList.add('fade-in');
+                            loadQuestion();
+                        }
+                    }, 1000);
+                }, 100);
+            } catch (error) {
+                alert("Gagal memulai Countdown: " + error.message);
+            }
         }
 
         async function fetchAudioUrl(artist, title) {
@@ -327,7 +345,7 @@
 
             if(activeAudio) { activeAudio.pause(); }
             activeAudio = new Audio(audioUrl);
-            activeAudio.play();
+            activeAudio.play().catch(e => console.log("Audio play error"));
             document.getElementById('cassette-ui').classList.add('spin-slow');
 
             renderStageUI();
@@ -400,7 +418,7 @@
 
             if (isCorrect) {
                 selectedBtn.style.borderColor = '#10b981'; selectedBtn.style.backgroundColor = '#d1fae5'; selectedBtn.style.color = '#065f46';
-                sfxRight.currentTime = 0; sfxRight.play();
+                sfxRight.currentTime = 0; sfxRight.play().catch(e => {});
                 
                 if (currentStage === 1) {
                     showFeedback(true, "BENAR! Tebak Judul!");
@@ -421,7 +439,7 @@
                 }
             } else {
                 selectedBtn.style.borderColor = '#ef4444'; selectedBtn.style.backgroundColor = '#fee2e2'; selectedBtn.style.color = '#991b1b';
-                sfxWrong.currentTime = 0; sfxWrong.play();
+                sfxWrong.currentTime = 0; sfxWrong.play().catch(e => {});
                 clearInterval(timerInterval);
                 if(activeAudio) activeAudio.pause();
                 document.getElementById('cassette-ui').classList.remove('spin-slow');
@@ -491,14 +509,14 @@
         }
 
         async function showLeaderboard() {
-            document.getElementById('splash-screen').classList.add('hidden');
-            stopAudio(bgmOpening); 
-
-            document.getElementById('leaderboard-screen').classList.remove('hidden'); document.getElementById('leaderboard-screen').style.display = 'flex';
-            const listContainer = document.getElementById('leaderboard-list');
-            listContainer.innerHTML = `<div class="text-center text-[#D4AF37] mt-10"><i class="fa-solid fa-compact-disc fa-spin text-2xl mb-2"></i><br>Membuka database kaset...</div>`;
-
             try {
+                document.getElementById('splash-screen').classList.add('hidden');
+                stopAudio(bgmOpening); 
+
+                document.getElementById('leaderboard-screen').classList.remove('hidden'); document.getElementById('leaderboard-screen').style.display = 'flex';
+                const listContainer = document.getElementById('leaderboard-list');
+                listContainer.innerHTML = `<div class="text-center text-[#D4AF37] mt-10"><i class="fa-solid fa-compact-disc fa-spin text-2xl mb-2"></i><br>Membuka database kaset...</div>`;
+
                 const response = await fetch('/.netlify/functions/scores');
                 const scores = await response.json();
                 if(scores.length === 0) { listContainer.innerHTML = `<div class="text-center text-gray-500 mt-10">Belum ada penyanyi yang mendaftar konser.</div>`; return; }
@@ -543,7 +561,6 @@
             } else if (pwd !== null) { alert("Password Salah!"); }
         }
 
-        // Fix Enter Key Listener agar masuk ke halaman instruksi
         document.getElementById('player-name').addEventListener("keypress", function(event) { if (event.key === "Enter") { event.preventDefault(); showInstructions(); } });
     </script>
 </body>
