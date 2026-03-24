@@ -1,9 +1,8 @@
 {
-  "name": "kuis-lebaran-bo2",
+  "name": "kuis-nada-bo2",
   "version": "1.0.0",
-  "description": "Kuis Lebaran BO2 dengan Netlify Postgres",
+  "description": "Game Kuis Tebak Nada",
   "dependencies": {
-    "@neondatabase/serverless": "^0.9.0"
+    "pg": "^8.11.3"
   }
 }
-
