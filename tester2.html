@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Audio Tester - BO2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #050505; color: white; font-family: 'Nunito', sans-serif; }
+        .glass-panel { background: rgba(20, 20, 20, 0.95); border: 2px solid #D4AF37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.15); }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="glass-panel w-full max-w-2xl rounded-3xl p-6 md:p-8 flex flex-col relative">
+        
+        <div class="text-center mb-6 border-b border-gray-800 pb-4">
+            <h1 class="text-3xl font-black text-[#D4AF37] mb-2"><i class="fa-solid fa-headphones"></i> Tester Audio Manual</h1>
+            <p class="text-sm text-gray-400">Dengarkan 2-3 detik. Jika ada suara, klik OK. Jika bisu/hening, klik ERROR.</p>
+        </div>
+
+        <div id="start-section" class="text-center py-10">
+            <button onclick="startTest()" class="bg-[#D4AF37] hover:bg-yellow-500 text-black font-black py-4 px-8 rounded-2xl shadow-[0_0_15px_rgba(212,175,55,0.4)] transition transform hover:scale-[1.02] text-xl">
+                <i class="fa-solid fa-play mr-2"></i> MULAI PENGECEKAN MANUAL
+            </button>
+        </div>
+
+        <div id="testing-section" class="hidden flex-col">
+            
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-gray-400 font-bold text-sm uppercase tracking-widest">Progress Pengecekan:</span>
+                <span class="text-[#D4AF37] font-black text-xl"><span id="current-count">1</span> / <span id="total-count">100</span></span>
+            </div>
+            
+            <div class="w-full bg-gray-900 h-2 rounded-full mb-6">
+                <div id="progress-bar" class="bg-gradient-to-r from-red-600 to-[#D4AF37] h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+
+            <div class="bg-[#0a0a0a] border border-gray-800 rounded-2xl p-6 text-center mb-6 relative">
+                <div id="loading-overlay" class="absolute inset-0 bg-black/80 flex items-center justify-center rounded-2xl z-10">
+                    <span class="text-[#D4AF37] font-black animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Mengambil Kaset...</span>
+                </div>
+
+                <p id="song-tag" class="text-xs text-[#D4AF37] font-bold tracking-[0.2em] mb-2 uppercase">[ERA] [ORIGIN]</p>
+                <h2 id="song-title" class="text-3xl font-black text-white mb-1">Judul Lagu</h2>
+                <h3 id="song-artist" class="text-xl text-gray-400 mb-4">Nama Penyanyi</h3>
+                
+                <button onclick="replayAudio()" class="text-sm bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-full transition">
+                    <i class="fa-solid fa-rotate-left mr-1"></i> Putar Ulang Audio
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <button onclick="handleVerdict(true)" class="bg-green-700 hover:bg-green-600 text-white font-black py-5 rounded-xl shadow-[0_0_15px_rgba(21,128,61,0.4)] transition transform hover:-translate-y-1 text-lg border border-green-500 flex flex-col items-center">
+                    <i class="fa-solid fa-circle-check text-3xl mb-1"></i> ADA SUARA (OK)
+                </button>
+                
+                <button onclick="handleVerdict(false)" class="bg-red-800 hover:bg-red-700 text-white font-black py-5 rounded-xl shadow-[0_0_15px_rgba(153,27,27,0.4)] transition transform hover:-translate-y-1 text-lg border border-red-500 flex flex-col items-center">
+                    <i class="fa-solid fa-volume-xmark text-3xl mb-1"></i> HENING / ERROR
+                </button>
+            </div>
+
+            <div>
+                <p class="text-xs text-gray-500 font-bold uppercase tracking-widest mb-2"><i class="fa-solid fa-clipboard-list"></i> Buku Catatan Kaset Rusak (Copy & Kirim ke A-GAI):</p>
+                <textarea id="log-output" class="w-full h-32 bg-[#050505] text-red-400 p-4 rounded-xl border border-gray-800 font-mono text-sm focus:outline-none custom-scrollbar" readonly placeholder="Lagu yang hening/error akan tercatat di sini..."></textarea>
+            </div>
+
+        </div>
+
+        <div id="finish-section" class="hidden text-center py-10">
+            <i class="fa-solid fa-flag-checkered text-6xl text-green-500 mb-4"></i>
+            <h2 class="text-3xl font-black text-white mb-2">PENGECEKAN SELESAI!</h2>
+            <p class="text-gray-400 mb-6">Silakan copy hasil log kaset yang rusak dan berikan ke Gemini untuk diganti.</p>
+        </div>
+
+    </div>
+
+    <script src="songs.js"></script>
+
+    <script>
+        let currentIndex = 0;
+        let activeAudio = null;
+        let failedSongsCount = 0;
+
+        document.getElementById('total-count').innerText = songBank.length;
+
+        function startTest() {
+            document.getElementById('start-section').classList.add('hidden');
+            document.getElementById('testing-section').classList.remove('hidden');
+            document.getElementById('testing-section').classList.add('flex');
+            
+            document.getElementById('log-output').value = "MEMULAI PENGECEKAN MANUAL...\n=========================================\n";
+            loadCurrentSong();
+        }
+
+        async function fetchAudioUrl(artist, title) {
+            const query = encodeURIComponent(`${artist} ${title}`);
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 8000); 
+
+            try {
+                const res = await fetch(`https://itunes.apple.com/search?term=${query}&entity=song&limit=1`, { signal: controller.signal });
+                clearTimeout(timeoutId);
+                const data = await res.json();
+                if (data.results && data.results.length > 0) return data.results[0].previewUrl;
+            } catch (e) { console.error("Fetch error", e); }
+            return null;
+        }
+
+        async function loadCurrentSong() {
+            if (currentIndex >= songBank.length) {
+                finishTest();
+                return;
+            }
+
+            const song = songBank[currentIndex];
+            
+            // Update UI Info
+            document.getElementById('current-count').innerText = currentIndex + 1;
+            document.getElementById('progress-bar').style.width = `${((currentIndex) / songBank.length) * 100}%`;
+            document.getElementById('song-tag').innerText = `[${song.era}] [${song.origin}]`;
+            document.getElementById('song-title').innerText = song.title;
+            document.getElementById('song-artist').innerText = song.artist;
+
+            // Tampilkan Loading
+            document.getElementById('loading-overlay').classList.remove('hidden');
+
+            // Hentikan audio sebelumnya jika ada
+            if (activeAudio) {
+                activeAudio.pause();
+                activeAudio.currentTime = 0;
+            }
+
+            const url = await fetchAudioUrl(song.artist, song.title);
+
+            // Hilangkan Loading
+            document.getElementById('loading-overlay').classList.add('hidden');
+
+            if (!url) {
+                // Jika URL saja gagal diambil, otomatis catat error
+                handleVerdict(false, "API Gagal/Terblokir");
+                return;
+            }
+
+            // Putar Audio
+            activeAudio = new Audio(url);
+            activeAudio.play().catch(e => {
+                console.log("Autoplay dicegah browser, butuh klik tombol 'Putar Ulang'");
+            });
+        }
+
+        function replayAudio() {
+            if (activeAudio) {
+                activeAudio.currentTime = 0;
+                activeAudio.play().catch(e => alert("Gagal memutar audio. Pastikan koneksi lancar."));
+            }
+        }
+
+        function handleVerdict(isOk, autoReason = "") {
+            const song = songBank[currentIndex];
+            const logBox = document.getElementById('log-output');
+
+            if (!isOk) {
+                failedSongsCount++;
+                const reason = autoReason ? ` (${autoReason})` : " (Audio Hening/Bisu)";
+                logBox.value += `[RUSAK] ${song.artist} - ${song.title}${reason}\n`;
+                // Auto scroll ke bawah
+                logBox.scrollTop = logBox.scrollHeight;
+            }
+
+            currentIndex++;
+            loadCurrentSong();
+        }
+
+        function finishTest() {
+            document.getElementById('testing-section').classList.add('hidden');
+            document.getElementById('testing-section').classList.remove('flex');
+            document.getElementById('finish-section').classList.remove('hidden');
+            document.getElementById('progress-bar').style.width = `100%`;
+            
+            const logBox = document.getElementById('log-output');
+            logBox.value += `\n=========================================\nSELESAI. Total Kaset Rusak: ${failedSongsCount} Lagu.`;
+        }
+    </script>
+</body>
+</html>
