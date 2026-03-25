@@ -7,11 +7,11 @@ const songBank = [
     { artist: "God Bless", title: "Semut Hitam", origin: "Indonesia", era: "80-an", artistOptions: ["God Bless", "Slank", "Boomerang", "Edane"], titleOptions: ["Semut Hitam", "Kehidupan", "Rumah Kita", "Panggung Sandiwara"] },
     { artist: "Gombloh", title: "Kugadaikan Cintaku", origin: "Indonesia", era: "80-an", artistOptions: ["Gombloh", "Doel Sumbang", "Iwan Fals", "Fariz RM"], titleOptions: ["Kugadaikan Cintaku", "Kebyar Kebyar", "Lestari Alamku", "Berita Cuaca"] },
     { artist: "Vina Panduwinata", title: "Burung Camar", origin: "Indonesia", era: "80-an", artistOptions: ["Vina Panduwinata", "Ruth Sahanaya", "Titi DJ", "Nia Daniaty"], titleOptions: ["Burung Camar", "Surat Cinta", "Logika", "Aku Makin Cinta"] },
-    { artist: "Fariz RM", title: "Barcelona", origin: "Indonesia", era: "80-an", artistOptions: ["Fariz RM", "Deddy Dhukun", "Mus Mujiono", "Dian Pramana Poetra"], titleOptions: ["Barcelona", "Sakura", "Nada Kasih", "Penari"] },
     { artist: "Ikang Fawzi", title: "Preman", origin: "Indonesia", era: "80-an", artistOptions: ["Ikang Fawzi", "Gito Rollies", "Hari Moekti", "Ahmad Albar"], titleOptions: ["Preman", "Selamat Malam", "Catatan Si Boy", "Randy & Cindy"] },
     { artist: "Nicky Astria", title: "Jarum Neraka", origin: "Indonesia", era: "80-an", artistOptions: ["Nicky Astria", "Anggun C. Sasmi", "Inka Christie", "Nike Ardilla"], titleOptions: ["Jarum Neraka", "Tangan Tangan Setan", "Biar Semua Hilang", "Panggung Sandiwara"] },
     { artist: "Dian Pramana Poetra", title: "Kau Seputih Melati", origin: "Indonesia", era: "80-an", artistOptions: ["Dian Pramana Poetra", "Fariz RM", "Harvey Malaihollo", "Broery Marantika"], titleOptions: ["Kau Seputih Melati", "Masih Ada", "Aku Cinta Padamu", "Biru"] },
-    { artist: "KLa Project", title: "Rentak Ria", origin: "Indonesia", era: "80-an", artistOptions: ["KLa Project", "Java Jive", "Trio Libels", "Kahitna"], titleOptions: ["Rentak Ria", "Tentang Kita", "Yogyakarta", "Terpuruk Ku Disini"] },
+    { artist: "Anggun C. Sasmi", title: "Mimpi", origin: "Indonesia", era: "80-an", artistOptions: ["Anggun C. Sasmi", "Nike Ardilla", "Nicky Astria", "Inka Christie"], titleOptions: ["Mimpi", "Tua Tua Keladi", "Bintang Kehidupan", "Nafas Cinta"] },
+    { artist: "Titi DJ", title: "Ekspresi", origin: "Indonesia", era: "80-an", artistOptions: ["Titi DJ", "Vina Panduwinata", "Ruth Sahanaya", "Memes"], titleOptions: ["Ekspresi", "Burung Camar", "Astaga", "Pesawatku"] },
 
     // ==========================================
     // 2. INDONESIA - 90-an
@@ -28,7 +28,7 @@ const songBank = [
     { artist: "Kahitna", title: "Cantik", origin: "Indonesia", era: "90-an", artistOptions: ["Kahitna", "Yovie & Nuno", "Java Jive", "Glenn Fredly"], titleOptions: ["Cantik", "Cerita Cinta", "Andai Dia Tahu", "Mantan Terindah"] },
 
     // ==========================================
-    // 3. INDONESIA - 2000-an
+    // 3. INDONESIA - 2000-an (MOCCA DIGANTI ARI LASSO)
     // ==========================================
     { artist: "Peterpan", title: "Mungkin Nanti", origin: "Indonesia", era: "2000-an", artistOptions: ["Peterpan", "Radja", "Ungu", "ST12"], titleOptions: ["Mungkin Nanti", "Ada Apa Denganmu", "Bintang Di Surga", "Topeng"] },
     { artist: "Letto", title: "Ruang Rindu", origin: "Indonesia", era: "2000-an", artistOptions: ["Letto", "Nidji", "D'Masiv", "Samsons"], titleOptions: ["Ruang Rindu", "Sebelum Cahaya", "Sandaran Hati", "Permintaan Hati"] },
@@ -37,7 +37,7 @@ const songBank = [
     { artist: "Ungu", title: "Demi Waktu", origin: "Indonesia", era: "2000-an", artistOptions: ["Ungu", "ST12", "Wali", "Kangen Band"], titleOptions: ["Demi Waktu", "Tercipta Untukku", "Kekasih Gelapku", "Cinta Dalam Hati"] },
     { artist: "Radja", title: "Jujur", origin: "Indonesia", era: "2000-an", artistOptions: ["Radja", "Repvblik", "Armada", "Kangen Band"], titleOptions: ["Jujur", "Tulus", "Benci Bilang Cinta", "Manusia Biasa"] },
     { artist: "The Changcuters", title: "Racun Dunia", origin: "Indonesia", era: "2000-an", artistOptions: ["The Changcuters", "Naif", "Kuburan", "Netral"], titleOptions: ["Racun Dunia", "I Love U Bibeh", "Gila Gilaan", "Main Serong"] },
-    { artist: "Mocca", title: "Secret Admirer", origin: "Indonesia", era: "2000-an", artistOptions: ["Mocca", "Ten2Five", "White Shoes", "Endah N Rhesa"], titleOptions: ["Secret Admirer", "I Remember", "Me And My Boyfriend", "Do What You Wanna Do"] },
+    { artist: "Ari Lasso", title: "Hampa", origin: "Indonesia", era: "2000-an", artistOptions: ["Ari Lasso", "Once Mekel", "Glenn Fredly", "Chrisye"], titleOptions: ["Hampa", "Misteri Ilahi", "Penjaga Hati", "Rahasia Perempuan"] },
     { artist: "Ada Band", title: "Manusia Bodoh", origin: "Indonesia", era: "2000-an", artistOptions: ["Ada Band", "Kerispatih", "Samsons", "Yovie & Nuno"], titleOptions: ["Manusia Bodoh", "Karena Wanita", "Setengah Hati", "Pemain Cinta"] },
     { artist: "D'Masiv", title: "Cinta Ini Membunuhku", origin: "Indonesia", era: "2000-an", artistOptions: ["D'Masiv", "Geisha", "Nidji", "Vierra"], titleOptions: ["Cinta Ini Membunuhku", "Jangan Menyerah", "Di Antara Kalian", "Merindukanmu"] },
 
@@ -58,21 +58,21 @@ const songBank = [
     // ==========================================
     // 5. INDONESIA - 2020-an
     // ==========================================
-    { artist: "Mahalini", title: "Sisa Rasa", origin: "Indonesia", era: "2020-an", artistOptions: ["Mahalini", "Tiara Andini", "Lyodra", "Ziva Magnolya"], titleOptions: ["Sisa Rasa", "Melawan Restu", "Kisah Sempurna", "Sial"] },
-    { artist: "Lyodra", title: "Pesan Terakhir", origin: "Indonesia", era: "2020-an", artistOptions: ["Lyodra", "Tiara Andini", "Mahalini", "Keisya Levronka"], titleOptions: ["Pesan Terakhir", "Sang Dewi", "Dibanding Dia", "Ego"] },
-    { artist: "Tiara Andini", title: "Merasa Indah", origin: "Indonesia", era: "2020-an", artistOptions: ["Tiara Andini", "Lyodra", "Ziva Magnolya", "Brisia Jodie"], titleOptions: ["Merasa Indah", "Maafkan Aku", "Janji Setia", "Usai"] },
-    { artist: "Nadin Amizah", title: "Bertaut", origin: "Indonesia", era: "2020-an", artistOptions: ["Nadin Amizah", "Danilla", "Yura Yunita", "Idgitaf"], titleOptions: ["Bertaut", "Sorai", "Taruh", "Rayuan Perempuan Gila"] },
     { artist: "Rizky Febian", title: "Makna Cinta", origin: "Indonesia", era: "2020-an", artistOptions: ["Rizky Febian", "Arsy Widianto", "Budi Doremi", "Andmesh"], titleOptions: ["Makna Cinta", "Cuek", "Kesempurnaan Cinta", "Penantian Berharga"] },
     { artist: "Hindia", title: "Evaluasi", origin: "Indonesia", era: "2020-an", artistOptions: ["Hindia", "Pamungkas", "Kunto Aji", "Sal Priadi"], titleOptions: ["Evaluasi", "Secukupnya", "Rumah Ke Rumah", "Cincin"] },
-    { artist: "Keisya Levronka", title: "Tak Ingin Usai", origin: "Indonesia", era: "2020-an", artistOptions: ["Keisya Levronka", "Tiara Andini", "Mahalini", "Lyodra"], titleOptions: ["Tak Ingin Usai", "Hidup Tanpamu", "Mengejar Matahari", "Tergesa"] },
-    { artist: "Ziva Magnolya", title: "Pilihan yang Terbaik", origin: "Indonesia", era: "2020-an", artistOptions: ["Ziva Magnolya", "Lyodra", "Tiara Andini", "Mahalini"], titleOptions: ["Pilihan yang Terbaik", "Terlukis Indah", "Tak Sanggup Melupa", "Menanti"] },
-    { artist: "Bernadya", title: "Satu Bulan", origin: "Indonesia", era: "2020-an", artistOptions: ["Bernadya", "Idgitaf", "Nadin Amizah", "Raissa Anggiani"], titleOptions: ["Satu Bulan", "Kini Mereka Tahu", "Apa Mungkin", "Sialnya, Hidup Harus Tetap Berjalan"] },
+    { artist: "Tiara Andini", title: "Merasa Indah", origin: "Indonesia", era: "2020-an", artistOptions: ["Tiara Andini", "Lyodra", "Ziva Magnolya", "Brisia Jodie"], titleOptions: ["Merasa Indah", "Maafkan Aku", "Janji Setia", "Usai"] },
     { artist: "Budi Doremi", title: "Mesin Waktu", origin: "Indonesia", era: "2020-an", artistOptions: ["Budi Doremi", "Andmesh", "Judika", "Virgoun"], titleOptions: ["Mesin Waktu", "Melukis Senja", "Tolong", "Tak Kan Hilang"] },
+    { artist: "Pamungkas", title: "To The Bone", origin: "Indonesia", era: "2020-an", artistOptions: ["Pamungkas", "Ardhito Pramono", "Hindia", "Kunto Aji"], titleOptions: ["To The Bone", "Kenangan Manis", "Flying Solo", "I Love You but I'm Letting Go"] },
+    { artist: "Juicy Luicy", title: "Lantas", origin: "Indonesia", era: "2020-an", artistOptions: ["Juicy Luicy", "Kangen Band", "Armada", "Wali"], titleOptions: ["Lantas", "Tanpa Tergesa", "Mawar Jingga", "Terlalu Tinggi"] },
+    { artist: "GANGGA", title: "Blue Jeans", origin: "Indonesia", era: "2020-an", artistOptions: ["GANGGA", "Pamungkas", "Ardhito Pramono", "Kaleb J"], titleOptions: ["Blue Jeans", "Forever", "Whiskey Bottle", "Don't"] },
+    { artist: "Anneth", title: "Mungkin Hari Ini Esok Atau Nanti", origin: "Indonesia", era: "2020-an", artistOptions: ["Anneth", "Lyodra", "Tiara Andini", "Ziva Magnolya"], titleOptions: ["Mungkin Hari Ini Esok Atau Nanti", "Pesan Terakhir", "Sisa Rasa", "Maafkan Aku"] },
+    { artist: "Ardhito Pramono", title: "Bitterlove", origin: "Indonesia", era: "2020-an", artistOptions: ["Ardhito Pramono", "Pamungkas", "Hindia", "Kunto Aji"], titleOptions: ["Bitterlove", "Fine Today", "Sudah", "Plastik"] },
+    { artist: "Stevan Pasaribu", title: "Belum Siap Kehilangan", origin: "Indonesia", era: "2020-an", artistOptions: ["Stevan Pasaribu", "Budi Doremi", "Andmesh", "Judika"], titleOptions: ["Belum Siap Kehilangan", "Ternyata Hanya Kamu", "Tak Pernah Cukup", "Hanya Rindu"] },
 
     // ==========================================
     // 6. BARAT - 80-an
     // ==========================================
-    { artist: "Michael Jackson", title: "Billie Jean", origin: "Barat", era: "80-an", artistOptions: ["Michael Jackson", "Prince", "Stevie Wonder", "Lionel Richie"], titleOptions: ["Billie Jean", "Beat It", "Thriller", "Smooth Criminal"] },
+    { artist: "Survivor", title: "Eye of the Tiger", origin: "Barat", era: "80-an", artistOptions: ["Survivor", "Queen", "Journey", "Aerosmith"], titleOptions: ["Eye of the Tiger", "Don't Stop Believin'", "We Will Rock You", "Dream On"] },
     { artist: "Queen", title: "Another One Bites the Dust", origin: "Barat", era: "80-an", artistOptions: ["Queen", "AC/DC", "Aerosmith", "The Rolling Stones"], titleOptions: ["Another One Bites the Dust", "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga"] },
     { artist: "Bon Jovi", title: "Livin' On A Prayer", origin: "Barat", era: "80-an", artistOptions: ["Bon Jovi", "Guns N' Roses", "Aerosmith", "Def Leppard"], titleOptions: ["Livin' On A Prayer", "Always", "It's My Life", "You Give Love A Bad Name"] },
     { artist: "Madonna", title: "Like a Virgin", origin: "Barat", era: "80-an", artistOptions: ["Madonna", "Cyndi Lauper", "Whitney Houston", "Cher"], titleOptions: ["Like a Virgin", "Material Girl", "Papa Don't Preach", "Vogue"] },
@@ -89,11 +89,11 @@ const songBank = [
     { artist: "Nirvana", title: "Smells Like Teen Spirit", origin: "Barat", era: "90-an", artistOptions: ["Nirvana", "Pearl Jam", "Green Day", "Foo Fighters"], titleOptions: ["Smells Like Teen Spirit", "Come As You Are", "Lithium", "In Bloom"] },
     { artist: "Oasis", title: "Wonderwall", origin: "Barat", era: "90-an", artistOptions: ["Oasis", "Blur", "Radiohead", "Coldplay"], titleOptions: ["Wonderwall", "Don't Look Back In Anger", "Champagne Supernova", "Live Forever"] },
     { artist: "Backstreet Boys", title: "I Want It That Way", origin: "Barat", era: "90-an", artistOptions: ["Backstreet Boys", "NSYNC", "Boyzone", "Westlife"], titleOptions: ["I Want It That Way", "Everybody", "As Long As You Love Me", "Shape of My Heart"] },
-    { artist: "Britney Spears", title: "...Baby One More Time", origin: "Barat", era: "90-an", artistOptions: ["Britney Spears", "Christina Aguilera", "Spice Girls", "Madonna"], titleOptions: ["...Baby One More Time", "Oops!... I Did It Again", "Toxic", "Lucky"] },
-    { artist: "Radiohead", title: "Creep", origin: "Barat", era: "90-an", artistOptions: ["Radiohead", "Oasis", "Muse", "Coldplay"], titleOptions: ["Creep", "Karma Police", "High and Dry", "No Surprises"] },
+    { artist: "Aerosmith", title: "I Don't Want to Miss a Thing", origin: "Barat", era: "90-an", artistOptions: ["Aerosmith", "Bon Jovi", "Guns N' Roses", "U2"], titleOptions: ["I Don't Want to Miss a Thing", "Crazy", "Dream On", "Cryin'"] },
+    { artist: "Goo Goo Dolls", title: "Iris", origin: "Barat", era: "90-an", artistOptions: ["Goo Goo Dolls", "Radiohead", "Matchbox Twenty", "The Calling"], titleOptions: ["Iris", "Slide", "Name", "Black Balloon"] },
     { artist: "TLC", title: "No Scrubs", origin: "Barat", era: "90-an", artistOptions: ["TLC", "Destiny's Child", "Spice Girls", "En Vogue"], titleOptions: ["No Scrubs", "Waterfalls", "Creep", "Unpretty"] },
-    { artist: "Spice Girls", title: "Wannabe", origin: "Barat", era: "90-an", artistOptions: ["Spice Girls", "TLC", "Destiny's Child", "Aqua"], titleOptions: ["Wannabe", "Stop", "2 Become 1", "Spice Up Your Life"] },
-    { artist: "Celine Dion", title: "My Heart Will Go On", origin: "Barat", era: "90-an", artistOptions: ["Celine Dion", "Whitney Houston", "Mariah Carey", "Shania Twain"], titleOptions: ["My Heart Will Go On", "The Power of Love", "Because You Loved Me", "All By Myself"] },
+    { artist: "No Doubt", title: "Don't Speak", origin: "Barat", era: "90-an", artistOptions: ["No Doubt", "The Cranberries", "Garbage", "Paramore"], titleOptions: ["Don't Speak", "Just A Girl", "Spiderwebs", "It's My Life"] },
+    { artist: "Ricky Martin", title: "Livin' la Vida Loca", origin: "Barat", era: "90-an", artistOptions: ["Ricky Martin", "Enrique Iglesias", "Marc Anthony", "Luis Fonsi"], titleOptions: ["Livin' la Vida Loca", "Maria", "She Bangs", "Bailamos"] },
     { artist: "Red Hot Chili Peppers", title: "Under the Bridge", origin: "Barat", era: "90-an", artistOptions: ["Red Hot Chili Peppers", "Nirvana", "Green Day", "Foo Fighters"], titleOptions: ["Under the Bridge", "Californication", "Otherside", "Scar Tissue"] },
     { artist: "Green Day", title: "Basket Case", origin: "Barat", era: "90-an", artistOptions: ["Green Day", "Blink-182", "The Offspring", "Sum 41"], titleOptions: ["Basket Case", "American Idiot", "Boulevard of Broken Dreams", "Wake Me Up When September Ends"] },
 
@@ -101,41 +101,41 @@ const songBank = [
     // 8. BARAT - 2000-an
     // ==========================================
     { artist: "Coldplay", title: "Yellow", origin: "Barat", era: "2000-an", artistOptions: ["Coldplay", "Muse", "Maroon 5", "Keane"], titleOptions: ["Yellow", "Fix You", "The Scientist", "Viva La Vida"] },
-    { artist: "Linkin Park", title: "Numb", origin: "Barat", era: "2000-an", artistOptions: ["Linkin Park", "Limp Bizkit", "Evanescence", "Green Day"], titleOptions: ["Numb", "In The End", "Crawling", "Somewhere I Belong"] },
+    { artist: "Evanescence", title: "Bring Me To Life", origin: "Barat", era: "2000-an", artistOptions: ["Evanescence", "Linkin Park", "Paramore", "Nightwish"], titleOptions: ["Bring Me To Life", "My Immortal", "Going Under", "Call Me When You're Sober"] },
     { artist: "Eminem", title: "Lose Yourself", origin: "Barat", era: "2000-an", artistOptions: ["Eminem", "50 Cent", "Snoop Dogg", "Jay-Z"], titleOptions: ["Lose Yourself", "Without Me", "The Real Slim Shady", "Stan"] },
     { artist: "Beyonce", title: "Crazy In Love", origin: "Barat", era: "2000-an", artistOptions: ["Beyonce", "Rihanna", "Alicia Keys", "Shakira"], titleOptions: ["Crazy In Love", "Single Ladies", "Halo", "Irreplaceable"] },
-    { artist: "The Killers", title: "Mr. Brightside", origin: "Barat", era: "2000-an", artistOptions: ["The Killers", "The Strokes", "Arctic Monkeys", "Franz Ferdinand"], titleOptions: ["Mr. Brightside", "Somebody Told Me", "When You Were Young", "Human"] },
+    { artist: "Gwen Stefani", title: "Hollaback Girl", origin: "Barat", era: "2000-an", artistOptions: ["Gwen Stefani", "Fergie", "Nelly Furtado", "P!nk"], titleOptions: ["Hollaback Girl", "Sweet Escape", "Rich Girl", "Cool"] },
     { artist: "Maroon 5", title: "This Love", origin: "Barat", era: "2000-an", artistOptions: ["Maroon 5", "Coldplay", "OneRepublic", "Train"], titleOptions: ["This Love", "She Will Be Loved", "Sunday Morning", "Payphone"] },
-    { artist: "Avril Lavigne", title: "Complicated", origin: "Barat", era: "2000-an", artistOptions: ["Avril Lavigne", "Kelly Clarkson", "Pink", "Paramore"], titleOptions: ["Complicated", "Sk8er Boi", "My Happy Ending", "Girlfriend"] },
-    { artist: "OutKast", title: "Hey Ya!", origin: "Barat", era: "2000-an", artistOptions: ["OutKast", "Gorillaz", "Black Eyed Peas", "Gnarls Barkley"], titleOptions: ["Hey Ya!", "Ms. Jackson", "Roses", "So Fresh, So Clean"] },
+    { artist: "Kelly Clarkson", title: "Since U Been Gone", origin: "Barat", era: "2000-an", artistOptions: ["Kelly Clarkson", "Avril Lavigne", "P!nk", "Carrie Underwood"], titleOptions: ["Since U Been Gone", "Because Of You", "Breakaway", "Stronger"] },
+    { artist: "Jason Mraz", title: "I'm Yours", origin: "Barat", era: "2000-an", artistOptions: ["Jason Mraz", "Jack Johnson", "John Mayer", "Ed Sheeran"], titleOptions: ["I'm Yours", "Lucky", "I Won't Give Up", "Banana Pancakes"] },
     { artist: "Rihanna", title: "Umbrella", origin: "Barat", era: "2000-an", artistOptions: ["Rihanna", "Beyonce", "Lady Gaga", "Katy Perry"], titleOptions: ["Umbrella", "Diamonds", "Don't Stop The Music", "We Found Love"] },
-    { artist: "Black Eyed Peas", title: "I Gotta Feeling", origin: "Barat", era: "2000-an", artistOptions: ["Black Eyed Peas", "LMFAO", "David Guetta", "Pitbull"], titleOptions: ["I Gotta Feeling", "Where Is The Love?", "Boom Boom Pow", "Pump It"] },
+    { artist: "Train", title: "Hey, Soul Sister", origin: "Barat", era: "2000-an", artistOptions: ["Train", "The Fray", "Plain White T's", "Owl City"], titleOptions: ["Hey, Soul Sister", "Drops of Jupiter", "Drive By", "Marry Me"] },
 
     // ==========================================
     // 9. BARAT - 2010-an
     // ==========================================
-    { artist: "Adele", title: "Rolling in the Deep", origin: "Barat", era: "2010-an", artistOptions: ["Adele", "Sam Smith", "Sia", "Amy Winehouse"], titleOptions: ["Rolling in the Deep", "Someone Like You", "Hello", "Set Fire to the Rain"] },
-    { artist: "Ed Sheeran", title: "Shape of You", origin: "Barat", era: "2010-an", artistOptions: ["Ed Sheeran", "Justin Bieber", "Shawn Mendes", "Charlie Puth"], titleOptions: ["Shape of You", "Thinking Out Loud", "Perfect", "Photograph"] },
-    { artist: "Bruno Mars", title: "Uptown Funk", origin: "Barat", era: "2010-an", artistOptions: ["Bruno Mars", "The Weeknd", "Maroon 5", "Justin Timberlake"], titleOptions: ["Uptown Funk", "That's What I Like", "Just the Way You Are", "Locked Out of Heaven"] },
-    { artist: "Taylor Swift", title: "Blank Space", origin: "Barat", era: "2010-an", artistOptions: ["Taylor Swift", "Katy Perry", "Selena Gomez", "Ariana Grande"], titleOptions: ["Blank Space", "Shake It Off", "Love Story", "Bad Blood"] },
-    { artist: "Justin Bieber", title: "Sorry", origin: "Barat", era: "2010-an", artistOptions: ["Justin Bieber", "Shawn Mendes", "Zayn", "Charlie Puth"], titleOptions: ["Sorry", "Love Yourself", "Baby", "What Do You Mean?"] },
+    { artist: "John Legend", title: "All of Me", origin: "Barat", era: "2010-an", artistOptions: ["John Legend", "Sam Smith", "Ed Sheeran", "Bruno Mars"], titleOptions: ["All of Me", "Ordinary People", "Love Me Now", "Stay With You"] },
+    { artist: "Imagine Dragons", title: "Radioactive", origin: "Barat", era: "2010-an", artistOptions: ["Imagine Dragons", "OneRepublic", "Coldplay", "The Killers"], titleOptions: ["Radioactive", "Demons", "Believer", "Thunder"] },
+    { artist: "Pharrell Williams", title: "Happy", origin: "Barat", era: "2010-an", artistOptions: ["Pharrell Williams", "Justin Timberlake", "Bruno Mars", "Robin Thicke"], titleOptions: ["Happy", "Get Lucky", "Blurred Lines", "Treasure"] },
+    { artist: "Katy Perry", title: "Roar", origin: "Barat", era: "2010-an", artistOptions: ["Katy Perry", "Taylor Swift", "Lady Gaga", "Rihanna"], titleOptions: ["Roar", "Firework", "Dark Horse", "California Gurls"] },
     { artist: "Billie Eilish", title: "bad guy", origin: "Barat", era: "2010-an", artistOptions: ["Billie Eilish", "Lorde", "Halsey", "Melanie Martinez"], titleOptions: ["bad guy", "ocean eyes", "when the party's over", "everything i wanted"] },
-    { artist: "Drake", title: "Hotline Bling", origin: "Barat", era: "2010-an", artistOptions: ["Drake", "Kendrick Lamar", "Post Malone", "Travis Scott"], titleOptions: ["Hotline Bling", "God's Plan", "In My Feelings", "One Dance"] },
-    { artist: "Dua Lipa", title: "New Rules", origin: "Barat", era: "2010-an", artistOptions: ["Dua Lipa", "Ariana Grande", "Camila Cabello", "Bebe Rexha"], titleOptions: ["New Rules", "Don't Start Now", "Levitating", "IDGAF"] },
     { artist: "The Weeknd", title: "Starboy", origin: "Barat", era: "2010-an", artistOptions: ["The Weeknd", "Bruno Mars", "Drake", "Post Malone"], titleOptions: ["Starboy", "Blinding Lights", "The Hills", "Can't Feel My Face"] },
+    { artist: "Dua Lipa", title: "New Rules", origin: "Barat", era: "2010-an", artistOptions: ["Dua Lipa", "Ariana Grande", "Camila Cabello", "Bebe Rexha"], titleOptions: ["New Rules", "Don't Start Now", "Levitating", "IDGAF"] },
     { artist: "Ariana Grande", title: "thank u, next", origin: "Barat", era: "2010-an", artistOptions: ["Ariana Grande", "Selena Gomez", "Demi Lovato", "Miley Cyrus"], titleOptions: ["thank u, next", "7 rings", "Into You", "no tears left to cry"] },
+    { artist: "Justin Bieber", title: "Sorry", origin: "Barat", era: "2010-an", artistOptions: ["Justin Bieber", "Shawn Mendes", "Zayn", "Charlie Puth"], titleOptions: ["Sorry", "Love Yourself", "Baby", "What Do You Mean?"] },
+    { artist: "Ed Sheeran", title: "Shape of You", origin: "Barat", era: "2010-an", artistOptions: ["Ed Sheeran", "Justin Bieber", "Shawn Mendes", "Charlie Puth"], titleOptions: ["Shape of You", "Thinking Out Loud", "Perfect", "Photograph"] },
 
     // ==========================================
     // 10. BARAT - 2020-an
     // ==========================================
-    { artist: "The Weeknd", title: "Blinding Lights", origin: "Barat", era: "2020-an", artistOptions: ["The Weeknd", "Post Malone", "Harry Styles", "Bruno Mars"], titleOptions: ["Blinding Lights", "Save Your Tears", "Starboy", "Die For You"] },
-    { artist: "Harry Styles", title: "As It Was", origin: "Barat", era: "2020-an", artistOptions: ["Harry Styles", "Shawn Mendes", "Justin Bieber", "Zayn"], titleOptions: ["As It Was", "Watermelon Sugar", "Sign of the Times", "Adore You"] },
-    { artist: "Taylor Swift", title: "Anti-Hero", origin: "Barat", era: "2020-an", artistOptions: ["Taylor Swift", "Olivia Rodrigo", "Billie Eilish", "Sabrina Carpenter"], titleOptions: ["Anti-Hero", "Cruel Summer", "Blank Space", "Karma"] },
-    { artist: "Olivia Rodrigo", title: "drivers license", origin: "Barat", era: "2020-an", artistOptions: ["Olivia Rodrigo", "Billie Eilish", "Tate McRae", "Sabrina Carpenter"], titleOptions: ["drivers license", "good 4 u", "deja vu", "vampire"] },
+    { artist: "OneRepublic", title: "I Ain't Worried", origin: "Barat", era: "2020-an", artistOptions: ["OneRepublic", "Imagine Dragons", "Coldplay", "Maroon 5"], titleOptions: ["I Ain't Worried", "Counting Stars", "Bones", "Memories"] },
+    { artist: "The Weeknd", title: "Save Your Tears", origin: "Barat", era: "2020-an", artistOptions: ["The Weeknd", "Post Malone", "Harry Styles", "Bruno Mars"], titleOptions: ["Save Your Tears", "Blinding Lights", "Starboy", "Die For You"] },
     { artist: "Miley Cyrus", title: "Flowers", origin: "Barat", era: "2020-an", artistOptions: ["Miley Cyrus", "Dua Lipa", "Katy Perry", "Lady Gaga"], titleOptions: ["Flowers", "Wrecking Ball", "Party In The U.S.A.", "Midnight Sky"] },
-    { artist: "Doja Cat", title: "Say So", origin: "Barat", era: "2020-an", artistOptions: ["Doja Cat", "Megan Thee Stallion", "Cardi B", "Nicki Minaj"], titleOptions: ["Say So", "Kiss Me More", "Woman", "Paint The Town Red"] },
-    { artist: "Dua Lipa", title: "Levitating", origin: "Barat", era: "2020-an", artistOptions: ["Dua Lipa", "Doja Cat", "Ariana Grande", "Miley Cyrus"], titleOptions: ["Levitating", "Don't Start Now", "Dance The Night", "Physical"] },
-    { artist: "SZA", title: "Kill Bill", origin: "Barat", era: "2020-an", artistOptions: ["SZA", "Summer Walker", "Kehlani", "H.E.R."], titleOptions: ["Kill Bill", "Good Days", "Snooze", "The Weekend"] },
-    { artist: "Benson Boone", title: "Beautiful Things", origin: "Barat", era: "2020-an", artistOptions: ["Benson Boone", "Stephen Sanchez", "Teddy Swims", "Conan Gray"], titleOptions: ["Beautiful Things", "In The Stars", "Ghost Town", "Slow It Down"] },
-    { artist: "Sabrina Carpenter", title: "Espresso", origin: "Barat", era: "2020-an", artistOptions: ["Sabrina Carpenter", "Olivia Rodrigo", "Tate McRae", "Madison Beer"], titleOptions: ["Espresso", "Nonsense", "Feather", "Please Please Please"] }
+    { artist: "The Kid LAROI", title: "STAY", origin: "Barat", era: "2020-an", artistOptions: ["The Kid LAROI", "Justin Bieber", "Post Malone", "Shawn Mendes"], titleOptions: ["STAY", "WITHOUT YOU", "Thousand Miles", "Love Again"] },
+    { artist: "Lil Nas X", title: "INDUSTRY BABY", origin: "Barat", era: "2020-an", artistOptions: ["Lil Nas X", "Jack Harlow", "Post Malone", "Drake"], titleOptions: ["INDUSTRY BABY", "MONTERO", "Old Town Road", "THATS WHAT I WANT"] },
+    { artist: "Ed Sheeran", title: "Bad Habits", origin: "Barat", era: "2020-an", artistOptions: ["Ed Sheeran", "Justin Bieber", "Shawn Mendes", "Charlie Puth"], titleOptions: ["Bad Habits", "Shivers", "Shape of You", "Perfect"] },
+    { artist: "Post Malone", title: "Chemical", origin: "Barat", era: "2020-an", artistOptions: ["Post Malone", "The Weeknd", "Justin Bieber", "Ed Sheeran"], titleOptions: ["Chemical", "Circles", "Sunflower", "Rockstar"] },
+    { artist: "Tate McRae", title: "greedy", origin: "Barat", era: "2020-an", artistOptions: ["Tate McRae", "Sabrina Carpenter", "Olivia Rodrigo", "Madison Beer"], titleOptions: ["greedy", "you broke me first", "exes", "run for the hills"] },
+    { artist: "Måneskin", title: "Beggin'", origin: "Barat", era: "2020-an", artistOptions: ["Måneskin", "Arctic Monkeys", "Imagine Dragons", "The Killers"], titleOptions: ["Beggin'", "Supermodel", "I Wanna Be Your Slave", "ZITTI E BUONI"] },
+    { artist: "Jack Harlow", title: "First Class", origin: "Barat", era: "2020-an", artistOptions: ["Jack Harlow", "Lil Nas X", "Drake", "Post Malone"], titleOptions: ["First Class", "WHATS POPPIN", "Tyler Herro", "Lovin On Me"] }
 ];
